@@ -6,12 +6,12 @@ import SectionDirections from "./SectionDirections.jsx";
 
 function StudyForBusiness() {
 
-    const dataForBusinessRightBlock = {
-        "title": "Обучение для бизнеса",
+    const dataForYourselfRightBlock = {
+        "title": "Обучение для себя",
         "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
     }
 
-    const dataForBusinessLeftBlock = [
+    const dataForYourselfLeftBlock = [
         {
             "title": "Направление 1",
             "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
@@ -41,8 +41,8 @@ function StudyForBusiness() {
 
     return (
         <>
-            <BlackContainerForHomePage title={"Обучение для бизнеса"} text="Ваш текст(Ut enim ad minim veniam, qui blanditiis praesentium)"/>
-            <SectionDirections rigthBlock={dataForBusinessRightBlock} leftBlocks={dataForBusinessLeftBlock} reverse={false} />
+            <BlackContainerForHomePage title={"Обучение для себя"} text="Ваш текст(Ut enim ad minim veniam, qui blanditiis praesentium)"/>
+            <SectionDirections rigthBlock={dataForYourselfRightBlock} leftBlocks={dataForYourselfLeftBlock} reverse={true} />
         </>
     );
 }
