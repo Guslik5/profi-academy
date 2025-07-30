@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap"; // Импортируем компонент Button
+import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import searchIcon from '../assets/searchIcon.png'
 import styled from 'styled-components';
@@ -54,8 +55,8 @@ const StyledButton = styled(Button)`
 
 function Header() {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary mx-5 " style={{borderBottom: "1px solid #9E9E9E"}}>
-                <Navbar.Brand href="#home">
+        <Navbar expand="lg" className="bg-body-tertiary mx-4 " style={{borderBottom: "1px solid #9E9E9E"}}>
+                <Navbar.Brand as={Link} to="/">
                     <img
                         src={logo}
                         alt="Логотип"
@@ -71,27 +72,27 @@ function Header() {
                             <img src={searchIcon} alt="Лупа"/>
                             поиск
                         </Nav.Item>
-                        <StyledNavDropdown title="О нас" id="about" className="d-flex justify-content-center align-items-center fs-5">
-                            <NavDropdown.Item href="#action/3.1">Наша миссия</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Документы</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Контакты</NavDropdown.Item>
+                        <StyledNavDropdown title="О нас" id="about" className="d-flex flex-column justify-content-center align-items-center fs-5">
+                            <NavDropdown.Item as={Link} to="/mission">Наша миссия</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/documents">Документы</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/contacts">Контакты</NavDropdown.Item>
                         </StyledNavDropdown>
 
-                        <StyledNavDropdown title="Обучение" id="study" className="d-flex justify-content-center align-items-center fs-5 ">
-                            <NavDropdown.Item href="#action/3.1">Рабочие профессии</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Повышение квалификации</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Профессиональная переподготовка</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Пожарная безопасность</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Охрана труда, первая помощь, высота, ОЗП</NavDropdown.Item>
+                        <StyledNavDropdown title="Обучение" id="study" className="d-flex flex-column justify-content-center align-items-center fs-5 ">
+                            <NavDropdown.Item as={Link} to="/work-professions">Рабочие профессии</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/qualification-improvement">Повышение квалификации</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/professional-retraining">Профессиональная переподготовка</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/fire-safety">Пожарная безопасность</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/labor-protection">Охрана труда, первая помощь,<br/> высота, ОЗП</NavDropdown.Item>
                         </StyledNavDropdown>
 
-                        <StyledNavDropdown title="Консалтинг" id="consulting" className="d-flex justify-content-center align-items-center fs-5 ">
-                            <NavDropdown.Item href="#action/3.1">Лицензирование</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Аттестация</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Вступление в СРО</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Пожарный аудит</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">СОУТ</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Расчет рисков</NavDropdown.Item>
+                        <StyledNavDropdown title="Консалтинг" id="consulting" className="d-flex flex-column justify-content-center align-items-center fs-5 ">
+                            <NavDropdown.Item as={Link} to="/licensing">Лицензирование</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/certification">Аттестация</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/sro-membership">Вступление в СРО</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/fire-audit">Пожарный аудит</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/sout">СОУТ</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/risk-assessment">Расчет рисков</NavDropdown.Item>
                         </StyledNavDropdown>
 
                         <div className="d-flex flex-column justify-content-center align-items-center" style={{minWidth: "171px"}}>
