@@ -23,9 +23,6 @@ const StyledButton = styled.button`
         font-size: 0.7rem;
     }
     
-
-
-
     /* Стили при наведении */
   &:hover {
     background-color: #00998B;
@@ -47,6 +44,14 @@ const StyledButton = styled.button`
   }
 `;
 
+ const StyledText = styled.h1`
+     font-size: 2.8vw;
+     margin-bottom: 8vw;
+     @media (max-width: 768px) {
+         font-size: 1.3rem;
+     }
+ `
+
 
 function Banner() {
     return (
@@ -55,11 +60,11 @@ function Banner() {
                 <Row className="align-items-center">
                     <Col md={6}>
                         <div className="text-column">
-                            <h1 className="d-flex justify-content-center  text-center fw-bold" style={{ fontSize: '2.8vw', marginBottom: '8vw' }}>
+                            <StyledText className="d-flex justify-content-center  text-center fw-bold">
                                 Ваш <br/>
                                 профессиональный <br/>
                                 рост - наша миссия.
-                            </h1>
+                            </StyledText>
                             <div className="d-flex justify-content-center">
                                 <StyledButton
                                     variant="outline-primary"
