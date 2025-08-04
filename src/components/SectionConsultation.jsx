@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import { isValidPhoneNumber } from 'libphonenumber-js'
 
 const StyledContainer = styled(Container)`
+    width: 90%;
     border-radius: 30px;
     background-color: #00D4C1;
     padding: 3rem;
@@ -142,7 +143,7 @@ function SectionConsultation() {
                         <Form.Group controlId="formEmail" className="mb-3">
                             <StyledFormControl
                                 type="email"
-                                placeholder="Почта"
+                                placeholder="Почта (не обязательно)"
                                 value={email}
                                 onChange={handleEmailChange}
                                 isInvalid={!!emailError}

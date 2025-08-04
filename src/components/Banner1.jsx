@@ -54,6 +54,11 @@ const StyledButton = styled.button`
 
 
 function Banner() {
+
+    const handleClick = () => {
+        window.scroll(8000,8000)
+    }
+
     return (
         <div className="banner" style={{ padding: '20px' }}>
             <Container fluid className="my-5">
@@ -67,6 +72,7 @@ function Banner() {
                             </StyledText>
                             <div className="d-flex justify-content-center">
                                 <StyledButton
+                                    onClick={handleClick}
                                     variant="outline-primary"
                                     className="text-center"
                                 >

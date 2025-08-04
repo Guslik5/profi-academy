@@ -6,7 +6,7 @@ import {Container} from "react-bootstrap";
 function linksDocuments( {links} ) {
     return (
        <>
-           <Container>
+           <Container className="mb-5">
                {
                    links.map((link, index) =>  {
                        const key = Object.keys(link)[0];

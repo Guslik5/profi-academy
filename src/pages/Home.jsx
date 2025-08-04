@@ -8,6 +8,7 @@ import OurMissionDesktop from "../components/OurMissionDesktop.jsx";
 import OurMissionMobile from "../components/OurMissionMobile.jsx";
 import SectionConsultation from "../components/SectionConsultation.jsx";
 import Contacts from "../components/Contacts.jsx";
+import Footer from "../components/Footer.jsx";
 
 function Home() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -39,7 +40,6 @@ function Home() {
         };
     }, []);
 
-    // Определяем, какой компонент рендерить на основе ширины экрана
     let componentToRender;
     if (windowWidth > 768) {
         componentToRender = <OurMissionDesktop data={data} />
@@ -60,7 +60,6 @@ function Home() {
 
             <SectionConsultation/>
             <Contacts/>
-            <div style={{margin: "5rem 5vw ", border: "1px solid black", opacity: "50%"}}></div>
 
         </>
     );

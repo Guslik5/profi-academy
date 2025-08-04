@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Carousel, Col, Container, Row} from "react-bootstrap";
 import SliderDocumentsWithOfficialPortal from "../components/SliderDocumentsWithOfficialPortal.jsx";
 import LinksDocuments from "../components/linksDocuments.jsx";
+import Footer from "../components/Footer.jsx";
 
 function Documents() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const links = [
         {
