@@ -88,7 +88,7 @@ function Header() {
                             поиск
                         </Nav.Item>
                         <StyledNavDropdown title="О нас" id="about" className="d-flex flex-column justify-content-center align-items-center fs-5">
-                            <NavDropdown.Item as={Link} to="/mission">Наша миссия</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/ourMission">Наша миссия</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/documents">Документы</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/contacts">Контакты</NavDropdown.Item>
                         </StyledNavDropdown>
