@@ -10,7 +10,7 @@ const StyledRightBlock = styled.div`
     flex-direction: column;
     padding: 1rem;
     min-width: 350px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+
     border-radius: 30px;
     clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%);
     margin-bottom: 30px;

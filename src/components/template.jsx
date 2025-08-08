@@ -7,8 +7,7 @@ function OurMission() {
             <div>
                 <h1>Наша миссия</h1>
                 <p>Текст о нашей миссии.</p>
-                <button>Кнопка 1</button>
-                <button>Кнопка 2</button>
+
             </div>
 
     );

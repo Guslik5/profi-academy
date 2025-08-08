@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import searchIcon from '../assets/searchIcon.png'
 import styled from 'styled-components';
+import AccessibilityButton from "./AccessibilityButton.jsx";
 
 const StyledNavDropdown = styled(NavDropdown)`
   &.nav-link {
@@ -34,6 +35,7 @@ const StyledNavDropdown = styled(NavDropdown)`
     }
 `;
 const StyledButton = styled(Button)`
+    display: block;
     height: 70px;
     background-color: #00998B;
     border: 1px solid #00998B;
@@ -70,22 +72,25 @@ function Header() {
     }
 
     return (
+        <>
+
         <Navbar expand="lg" className="bg-body-tertiary mx-4 " style={{borderBottom: "1px solid #9E9E9E"}}>
-                <Navbar.Brand as={Link} to="/">
-                    <img
-                        src={logo}
-                        alt="Логотип"
-                        height="94"
-                        className="d-inline-block align-top mx-5"
-                    />
-                </Navbar.Brand>
+
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="d-flex justify-content-between w-100">
+                        <Navbar.Brand as={Link} to="/">
+                            <img
+                                src={logo}
+                                alt="Логотип"
+                                height="94"
+                                className="d-inline-block align-top mx-3"
+                            />
+                        </Navbar.Brand>
                         <Nav.Item className="d-flex justify-content-center align-items-center fs-5 ">
                             <img src={searchIcon} alt="Лупа"/>
-                            поиск
+
                         </Nav.Item>
                         <StyledNavDropdown title="О нас" id="about" className="d-flex flex-column justify-content-center align-items-center fs-5">
                             <NavDropdown.Item as={Link} to="/ourMission">Наша миссия</NavDropdown.Item>
@@ -114,11 +119,14 @@ function Header() {
                             <Nav.Link href="tel:+71234567890" className="p-0">+7 (123) 456-78-90</Nav.Link>
                             <Nav.Link href="mailto:akademia-profi@mail.ru" className="p-0">akademia-profi@mail.ru</Nav.Link>
                         </div>
-
-                        <StyledButton className="px-3" onClick={handleClick}>Оставить заявку</StyledButton>
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <StyledButton className="px-3" onClick={handleClick}>Оставить заявку</StyledButton>
+                        </div>
                     </Nav>
                 </Navbar.Collapse>
         </Navbar>
+
+    </>
     );
 }
 

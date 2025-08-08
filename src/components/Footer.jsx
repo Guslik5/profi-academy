@@ -7,6 +7,7 @@ import tgIcon from '../assets/iconTg.svg'
 import vkIcon from '../assets/iconVk.svg'
 
 import styled from 'styled-components';
+import AccessibilityButton from "./AccessibilityButton.jsx";
 
 const StyledCol = styled(Col)`
       display: flex;
@@ -133,17 +134,20 @@ function Footer() {
                     ))}
                 </Row>
                 <Row className="mt-3 d-flex justify-content-center align-items-center">
-                    <Col md={3} className="text-center">
+                    <Col md={4} className="text-center">
                         <Nav.Link href="tel:+71234567890" className="p-0">+7 (123) 456-78-90</Nav.Link>
 
                     </Col>
-                    <Col md={3} className="text-center">
+                    <Col md={4} className="text-center">
                         <Nav.Link href="mailto:akademia-profi@mail.ru" className="p-0">akademia-profi@mail.ru</Nav.Link>
                     </Col>
-                    <Col md={3} className="text-center">
+                    <Col md={4} className="text-center">
                         Адрес (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas )
                     </Col>
-                    <StyledCol md={3} className="d-flex justify-content-center align-items-center">
+
+                </Row>
+                <Row>
+                    <StyledCol className="d-flex justify-content-center align-items-center">
                         {dataIcons.map((item, index) => {
                             return (
                                 <>
@@ -169,7 +173,10 @@ function Footer() {
                 </Row>
                 <Row className="mt-3">
                     <Col className="text-center">
-                        <CopyrightText>  Академия профи.  <br/> Все права защищены.<br/> &copy; {new Date().getFullYear()}</CopyrightText>
+                        <CopyrightText> ООО "АКАДЕМИЯ ПРОФИ"  <br/> ИНН: 9810001506 <br/> Все права защищены.<br/> &copy; {new Date().getFullYear()}</CopyrightText>
+                        <div style={{ textAlign: "left"}}>
+                            <AccessibilityButton />
+                        </div>
                     </Col>
                 </Row>
             </Container>
