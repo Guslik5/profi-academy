@@ -54,32 +54,31 @@ function Contacts() {
                             Расположение офиса
                         </div>
                         <div>
-                            <p>расположение вашего офиса,</p>
-                            <p>адрес</p>
+                            Санкт-Петербург, Ленинский пр-т, <br/> д. 168, офис 509.
                         </div>
                     </Col>
                     <Col className="text-center" md={4}>
                         <div className="fw-bold fs-5 m-3 d-flex justify-content-center align-items-center">
-                            <img src={phoneIcon} alt="значек локации"/>
+                            <img src={phoneIcon} alt="значек телефона"/>
                             Телефон
                         </div>
                         <div className="d-flex flex-column">
-                            <p>
-                                <a href="tel:+71234567890" className="text-decoration-none text-black">+7 (123) 456-78-90</a>
-                            </p>
-                            <p>
-                                <a href="tel:+71234567890" className="text-decoration-none text-black">+7 (123) 456-78-90</a>
-                            </p>
+
+                                <a href="tel:+79531509336" className="text-decoration-none text-black">+7 (953) 150-93-36</a>
+                                <br/>
+                                <a href="tel:+79531509336" className="text-decoration-none text-black">+7 (953) 150-93-36</a>
+
                         </div>
                     </Col>
                     <Col className="text-center" md={4}>
                         <div className="fw-bold fs-5 m-3 d-flex justify-content-center align-items-center">
-                            <img src={timeIcon} alt="значек локации"/>
+                            <img src={timeIcon} alt="значек часов"/>
                             Рабочее время
                         </div>
                         <div>
-                            <p>Пн-Пт: 10:00-20:00</p>
-                            <p>Сб-Вс:  Закрыто</p>
+                            Пн-Чт: 10:00-20:00 <br/>
+                            Пт: 9:30-17:00 <br/>
+                            Сб-Вс: Закрыто <br/>
                         </div>
                     </Col>
                 </Row>

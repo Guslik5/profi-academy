@@ -22,40 +22,40 @@ function StudyForYourself() {
 
     const dataForYourselfRightBlock = {
         "title": "Обучение для себя",
-        "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+        "text": "..."
     }
 
     const dataForYourselfLeftBlock = [
         {
             "title": "Направление 1",
-            "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            "text": "...",
             "count": "01",
         },
         {
             "title": "Направление 2",
-            "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            "text": "...",
             "count": "02",
         },
         {
             "title": "Направление 3",
-            "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            "text": "...",
             "count": "03",
         },
         {
             "title": "Направление 4",
-            "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            "text": "...",
             "count": "04",
         },
         {
             "title": "Направление 5",
-            "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            "text": "...",
             "count": "05",
         },
     ]
 
     return (
         <StyledStudyForYourself>
-            <BlackContainerForHomePage title={"Обучение для себя"} text="Ваш текст(Ut enim ad minim veniam, qui blanditiis praesentium)"/>
+            <BlackContainerForHomePage title={"Обучение для себя"} text="..."/>
             <SectionDirections rigthBlock={dataForYourselfRightBlock} leftBlocks={dataForYourselfLeftBlock} reverse={true} />
         </StyledStudyForYourself>
     );

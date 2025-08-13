@@ -35,7 +35,6 @@ const StyledNavDropdown = styled(NavDropdown)`
     }
 `;
 const StyledButton = styled(Button)`
-    display: block;
     height: 70px;
     background-color: #00998B;
     border: 1px solid #00998B;
@@ -63,6 +62,13 @@ const StyledButton = styled(Button)`
     }
 `;
 
+const StyledImg = styled.img`
+    height: 94px;
+    @media (max-width: 768px) {
+        height: 50px;
+    }
+`
+
 
 
 function Header() {
@@ -75,19 +81,16 @@ function Header() {
         <>
 
         <Navbar expand="lg" className="bg-body-tertiary mx-4 " style={{borderBottom: "1px solid #9E9E9E"}}>
-
-
+                <Navbar.Brand as={Link} to="/" style={{marginRight: '4.5vw'}}>
+                    <StyledImg
+                        src={logo}
+                        alt="Логотип"
+                        className="d-inline-block align-top mx-3"
+                    />
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="d-flex justify-content-between w-100">
-                        <Navbar.Brand as={Link} to="/">
-                            <img
-                                src={logo}
-                                alt="Логотип"
-                                height="94"
-                                className="d-inline-block align-top mx-3"
-                            />
-                        </Navbar.Brand>
                         <Nav.Item className="d-flex justify-content-center align-items-center fs-5 ">
                             <img src={searchIcon} alt="Лупа"/>
 
@@ -116,12 +119,11 @@ function Header() {
                         </StyledNavDropdown>
 
                         <div className="d-flex flex-column justify-content-center align-items-center" style={{minWidth: "171px"}}>
-                            <Nav.Link href="tel:+71234567890" className="p-0">+7 (123) 456-78-90</Nav.Link>
+                            <Nav.Link href="tel:+79531509336" className="p-0">+7 (953) 150-93-36</Nav.Link>
                             <Nav.Link href="mailto:akademia-profi@mail.ru" className="p-0">akademia-profi@mail.ru</Nav.Link>
                         </div>
-                        <div className="d-flex flex-column justify-content-center align-items-center">
-                            <StyledButton className="px-3" onClick={handleClick}>Оставить заявку</StyledButton>
-                        </div>
+
+                        <StyledButton className="px-3" onClick={handleClick}>Оставить заявку</StyledButton>
                     </Nav>
                 </Navbar.Collapse>
         </Navbar>

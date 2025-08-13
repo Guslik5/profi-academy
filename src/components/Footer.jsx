@@ -6,8 +6,10 @@ import whatsAppIcon from '../assets/iconWhatsApp.svg'
 import tgIcon from '../assets/iconTg.svg'
 import vkIcon from '../assets/iconVk.svg'
 
+
 import styled from 'styled-components';
 import AccessibilityButton from "./AccessibilityButton.jsx";
+import logo from "../assets/logo.png";
 
 const StyledCol = styled(Col)`
       display: flex;
@@ -38,10 +40,11 @@ const FooterContainer = styled.footer`
 
 const CategoryTitle = styled.h5`
   color: white;
-  margin: 0 3rem 0 0;
+
   padding-bottom: 5px;
   border-bottom: 1px solid white;
   font-weight: bold;
+    text-align: center;
 `;
 
 const StyledListGroupItem = styled(ListGroupItem)`
@@ -50,6 +53,7 @@ const StyledListGroupItem = styled(ListGroupItem)`
   padding: 5px 0;
     color: white;
     text-decoration: none;
+    text-align: center;
     
     &:hover {
       color: #cccccc;
@@ -66,7 +70,7 @@ function Footer() {
         {
             category: "О нас",
             links: [
-                { name: "Наша миссия", url: "#" },
+                { name: "Наша миссия", url: "/ourMission" },
                 { name: "Документы", url: "/documents" },
                 { name: "Контакты", url: "#" },
             ],
@@ -135,50 +139,55 @@ function Footer() {
                 </Row>
                 <Row className="mt-3 d-flex justify-content-center align-items-center">
                     <Col md={4} className="text-center">
-                        <Nav.Link href="tel:+71234567890" className="p-0">+7 (123) 456-78-90</Nav.Link>
+                        <Nav.Link href="tel:+79531509336" className="p-0">+7 (953) 150-93-36</Nav.Link>
+                        <Nav.Link href="mailto:akademia-profi@mail.ru" className="p-0">akademia-profi@mail.ru</Nav.Link>
+                        <div>
+                            Санкт-Петербург, Ленинский пр-т, д. 168, офис 509.
+                        </div>
 
                     </Col>
                     <Col md={4} className="text-center">
-                        <Nav.Link href="mailto:akademia-profi@mail.ru" className="p-0">akademia-profi@mail.ru</Nav.Link>
+
                     </Col>
                     <Col md={4} className="text-center">
-                        Адрес (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas )
+                        <StyledCol className="d-flex justify-content-center align-items-center">
+                            {dataIcons.map((item, index) => {
+                                return (
+                                    <>
+                                        <a
+                                            key={index}
+                                            href={item.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            onClick={() => handleClick(item.href)}
+                                            style={{display: 'inline-block', margin: "0.5em"}}
+                                        >
+                                            <img
+                                                src={item.image}
+                                                alt={item.alt}
+                                                style={{width: '32px', height: '32px'}}
+                                            />
+                                        </a>
+                                    </>
+                                )
+                            })}
+
+                        </StyledCol>
+                        <Row className="mt-3">
+                            <Col className="text-center">
+                                <CopyrightText> ООО "АКАДЕМИЯ ПРОФИ"  <br/> ИНН: 9810001506 <br/> Все права защищены.<br/> &copy; {new Date().getFullYear()}</CopyrightText>
+                                <div style={{ textAlign: "left"}}>
+
+                                </div>
+                            </Col>
+                        </Row>
                     </Col>
 
                 </Row>
                 <Row>
-                    <StyledCol className="d-flex justify-content-center align-items-center">
-                        {dataIcons.map((item, index) => {
-                            return (
-                                <>
-                                    <a
-                                        key={index}
-                                        href={item.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        onClick={() => handleClick(item.href)}
-                                        style={{display: 'inline-block', margin: "0.5em"}} // Чтобы можно было задать ширину и высоту
-                                    >
-                                        <img
-                                            src={item.image}
-                                            alt={item.alt}
-                                            style={{width: '32px', height: '32px'}} // Настройте размеры
-                                        />
-                                    </a>
-                                </>
-                            )
-                        })}
 
-                    </StyledCol>
                 </Row>
-                <Row className="mt-3">
-                    <Col className="text-center">
-                        <CopyrightText> ООО "АКАДЕМИЯ ПРОФИ"  <br/> ИНН: 9810001506 <br/> Все права защищены.<br/> &copy; {new Date().getFullYear()}</CopyrightText>
-                        <div style={{ textAlign: "left"}}>
-                            <AccessibilityButton />
-                        </div>
-                    </Col>
-                </Row>
+                <AccessibilityButton/>
             </Container>
         </FooterContainer>
     );

@@ -29,7 +29,6 @@ function AccessibilityButton() {
             src="https://lidrekon.ru/images/special.png"
             alt="ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ"
             title="ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ"
-
         />
     );
 }

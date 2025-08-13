@@ -19,41 +19,41 @@ const StyledStudyForBusiness = styled.div`
 function StudyForBusiness() {
 
     const dataForBusinessRightBlock = {
-        "title": "Обучение для бизнеса",
-        "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+        "title": "Консалтинг",
+        "text": "..."
     }
 
     const dataForBusinessLeftBlock = [
         {
             "title": "Направление 1",
-            "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            "text": "...",
             "count": "01",
         },
         {
             "title": "Направление 2",
-            "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            "text": "...",
             "count": "02",
         },
         {
             "title": "Направление 3",
-            "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            "text": "...",
             "count": "03",
         },
         {
             "title": "Направление 4",
-            "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            "text": "...",
             "count": "04",
         },
         {
             "title": "Направление 5",
-            "text": "Описание (Ut enim ad minim veniam, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            "text": "...",
             "count": "05",
         },
     ]
 
     return (
         <StyledStudyForBusiness>
-            <BlackContainerForHomePage title={"Обучение для бизнеса"} text="Ваш текст(Ut enim ad minim veniam, qui blanditiis praesentium)"/>
+            <BlackContainerForHomePage title={"Консалтинг"} text="..."/>
             <SectionDirections rigthBlock={dataForBusinessRightBlock} leftBlocks={dataForBusinessLeftBlock} reverse={false} />
         </StyledStudyForBusiness>
     );
