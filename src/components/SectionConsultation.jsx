@@ -114,7 +114,7 @@ function SectionConsultation() {
                         Получите бесплатную <br/> консультацию
                     </Row>
                     <Row className="d-flex justify-content-center align-content-center text-center text-white fs-5 mt-5">
-                        {/*текст сюда*/}
+                        Разберем вашу ситуацию и предложим оптимальный путь развития в интересующей вас сфере.
                     </Row>
                 </Col>
                 <Col md={6}>

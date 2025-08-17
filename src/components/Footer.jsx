@@ -89,7 +89,7 @@ function Footer() {
             category: "Консалтинг",
             links: [
                 { name: "Лицензирование", url: "#" },
-                { name: "Аттестация", url: "#" },
+                { name: "Аттестация специалистов", url: "#" },
                 { name: "Вступление в СРО", url: "#" },
                 { name: "Пожарный аудит", url: "#" },
                 { name: "СОУТ", url: "#" },
@@ -187,7 +187,7 @@ function Footer() {
                 <Row>
 
                 </Row>
-                <AccessibilityButton/>
+
             </Container>
         </FooterContainer>
     );

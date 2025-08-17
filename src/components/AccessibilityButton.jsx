@@ -13,6 +13,7 @@ function AccessibilityButton() {
         script2.src = 'https://lidrekon.ru/slep/js/uhpv-full.min.js';
         script2.async = true;
         document.body.appendChild(script2);
+        console.log("скрипты загружены")
 
         // Очистка при размонтировании компонента
         return () => {
@@ -25,7 +26,7 @@ function AccessibilityButton() {
     return (
         <img
             id="specialButton"
-            style={{ cursor: 'pointer', width: '3%'}}
+            style={{ cursor: 'pointer'}}
             src="https://lidrekon.ru/images/special.png"
             alt="ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ"
             title="ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ"

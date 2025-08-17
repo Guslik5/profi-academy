@@ -78,9 +78,8 @@ function Header() {
     }
 
     return (
-        <>
-
         <Navbar expand="lg" className="bg-body-tertiary mx-4 " style={{borderBottom: "1px solid #9E9E9E"}}>
+
                 <Navbar.Brand as={Link} to="/" style={{marginRight: '4.5vw'}}>
                     <StyledImg
                         src={logo}
@@ -88,11 +87,12 @@ function Header() {
                         className="d-inline-block align-top mx-3"
                     />
                 </Navbar.Brand>
+                <AccessibilityButton/>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="d-flex justify-content-between w-100">
-                        <Nav.Item className="d-flex justify-content-center align-items-center fs-5 ">
-                            <img src={searchIcon} alt="Лупа"/>
+                        <Nav.Item className="d-flex justify-content-center align-items-center fs-4 ">
+                            <img src={searchIcon} alt="Лупа" width="90%"/>
 
                         </Nav.Item>
                         <StyledNavDropdown title="О нас" id="about" className="d-flex flex-column justify-content-center align-items-center fs-5">
@@ -111,7 +111,7 @@ function Header() {
 
                         <StyledNavDropdown title="Консалтинг" id="consulting" className="d-flex flex-column justify-content-center align-items-center fs-5 ">
                             <NavDropdown.Item as={Link} to="/licensing">Лицензирование</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/certification">Аттестация</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/certification">Аттестация специалистов</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/sro-membership">Вступление в СРО</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/fire-audit">Пожарный аудит</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/sout">СОУТ</NavDropdown.Item>
@@ -128,7 +128,6 @@ function Header() {
                 </Navbar.Collapse>
         </Navbar>
 
-    </>
     );
 }
 

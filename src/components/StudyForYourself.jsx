@@ -21,33 +21,33 @@ const StyledStudyForYourself = styled.div`
 function StudyForYourself() {
 
     const dataForYourselfRightBlock = {
-        "title": "Обучение для себя",
+        "title": "Обучение",
         "text": "..."
     }
 
     const dataForYourselfLeftBlock = [
         {
-            "title": "Направление 1",
+            "title": "Рабочие профессии",
             "text": "...",
             "count": "01",
         },
         {
-            "title": "Направление 2",
+            "title": "Повышение квалификации",
             "text": "...",
             "count": "02",
         },
         {
-            "title": "Направление 3",
+            "title": "Профессиональная переподготовка",
             "text": "...",
             "count": "03",
         },
         {
-            "title": "Направление 4",
+            "title": "Пожарная безопасность",
             "text": "...",
             "count": "04",
         },
         {
-            "title": "Направление 5",
+            "title": "Охрана труда, первая помощь, высота, ОЗП",
             "text": "...",
             "count": "05",
         },
@@ -55,7 +55,7 @@ function StudyForYourself() {
 
     return (
         <StyledStudyForYourself>
-            <BlackContainerForHomePage title={"Обучение для себя"} text="..."/>
+            <BlackContainerForHomePage title={"Обучение"} text="..."/>
             <SectionDirections rigthBlock={dataForYourselfRightBlock} leftBlocks={dataForYourselfLeftBlock} reverse={true} />
         </StyledStudyForYourself>
     );

@@ -76,9 +76,32 @@ function Contacts() {
                             Рабочее время
                         </div>
                         <div>
-                            Пн-Чт: 10:00-20:00 <br/>
-                            Пт: 9:30-17:00 <br/>
-                            Сб-Вс: Закрыто <br/>
+                            <Container className="d-flex flex-column justify-content-center align-items-center">
+                                <Row className="gx-0" style={{width:"80%"}}>
+                                    <Col>
+                                        Пн-Чт:
+                                    </Col>
+                                    <Col>
+                                        10:00-20:00
+                                    </Col>
+                                </Row>
+                                <Row className="gx-0" style={{width:"80%"}}>
+                                    <Col>
+                                        Пт:
+                                    </Col>
+                                    <Col>
+                                        9:30-17:00
+                                    </Col>
+                                </Row>
+                                <Row className="gx-0" style={{width:"80%"}}>
+                                    <Col>
+                                        Сб-Вс:
+                                    </Col>
+                                    <Col>
+                                        Закрыто
+                                    </Col>
+                                </Row>
+                            </Container>
                         </div>
                     </Col>
                 </Row>

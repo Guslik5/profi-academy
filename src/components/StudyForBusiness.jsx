@@ -25,29 +25,34 @@ function StudyForBusiness() {
 
     const dataForBusinessLeftBlock = [
         {
-            "title": "Направление 1",
+            "title": "Лицензирование",
             "text": "...",
             "count": "01",
         },
         {
-            "title": "Направление 2",
+            "title": "Аттестация",
             "text": "...",
             "count": "02",
         },
         {
-            "title": "Направление 3",
+            "title": "Вступление в СРО",
             "text": "...",
             "count": "03",
         },
         {
-            "title": "Направление 4",
+            "title": "Пожарный аудит",
             "text": "...",
             "count": "04",
         },
         {
-            "title": "Направление 5",
+            "title": "СОУТ",
             "text": "...",
             "count": "05",
+        },
+        {
+            "title": "Расчет рисков",
+            "text": "...",
+            "count": "06",
         },
     ]
 

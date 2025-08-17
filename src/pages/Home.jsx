@@ -52,8 +52,8 @@ function Home() {
         <>
             <Banner1 />
             <BannerAllTools />
-            <StudyForBusiness/>
             <StudyForYourself/>
+            <StudyForBusiness/>
             {componentToRender}
 
             <div style={{margin: "5rem 5vw ", border: "1px solid black", opacity: "50%"}}></div>
