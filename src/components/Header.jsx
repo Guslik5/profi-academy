@@ -69,6 +69,17 @@ const StyledImg = styled.img`
     }
 `
 
+const StyledHeader = styled.header`
+position: fixed; /* Фиксируем header вверху экрана */
+top: 0;          /* Прижимаем к верху экрана */
+left: 0;         /* Прижимаем к левому краю экрана */
+width: 100%;      /* Занимаем всю ширину экрана */
+z-index: 1000;   /* Устанавливаем высокий z-index, чтобы header был поверх всего контента */
+background-color: white; /* Или другой цвет фона, чтобы контент не просвечивал */
+`
+/* Добавьте другие стили, которые вам нужны для header */
+;
+
 
 
 function Header() {
@@ -80,7 +91,7 @@ function Header() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary mx-4 " style={{borderBottom: "1px solid #9E9E9E"}}>
 
-                <Navbar.Brand as={Link} to="/" style={{marginRight: '4.5vw'}}>
+                <Navbar.Brand as={Link} to="/" style={{marginRight: '4vw'}}>
                     <StyledImg
                         src={logo}
                         alt="Логотип"
@@ -92,7 +103,7 @@ function Header() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="d-flex justify-content-between w-100">
                         <Nav.Item className="d-flex justify-content-center align-items-center fs-4 ">
-                            <img src={searchIcon} alt="Лупа" width="90%"/>
+                            <img src={searchIcon} alt="Лупа" />
 
                         </Nav.Item>
                         <StyledNavDropdown title="О нас" id="about" className="d-flex flex-column justify-content-center align-items-center fs-5">

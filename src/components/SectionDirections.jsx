@@ -17,7 +17,7 @@ const RightCol = styled(Col)`
   align-items: flex-start;
   /*  Важно: позиционирование sticky */
   position: sticky;
-  top: 20px; /*  Отступ от верха экрана (настройте по желанию) */
+  top: 140px; /*  Отступ от верха экрана (настройте по желанию) */
   height: fit-content;  /* Изменяем height */
   align-self: flex-start; /* Выравниваем по верху */
   @media (max-width: 991px) {
