@@ -39,8 +39,9 @@ const Title = styled.div`
     border: 1px solid white;
     border-radius: 20px;
     padding: 0.5rem 1rem;
-    margin: 3rem auto; /* Меняем margin */
-    width: fit-content; /* Важно */
+    margin: 3rem auto; 
+    width: fit-content; 
+    font-size: 1.2item;
 `;
 
 const Text = styled.p`

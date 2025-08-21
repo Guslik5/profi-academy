@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png'
+import logo from '../assets/logoFavikon.png'
 import searchIcon from '../assets/searchIcon.png'
 import styled from 'styled-components';
 import AccessibilityButton from "./AccessibilityButton.jsx";
@@ -95,8 +95,9 @@ function Header() {
                     <StyledImg
                         src={logo}
                         alt="Логотип"
-                        className="d-inline-block align-top mx-3"
+                        className="d-flex mx-auto"
                     />
+                    <div style={{fontSize: "15px"}}>АКАДЕМИЯ ПРОФИ</div>
                 </Navbar.Brand>
                 <AccessibilityButton/>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

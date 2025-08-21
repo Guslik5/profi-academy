@@ -15,14 +15,13 @@ const RightCol = styled(Col)`
   margin-left: 20px;
   display: flex;
   align-items: flex-start;
-  /*  Важно: позиционирование sticky */
   position: sticky;
-  top: 140px; /*  Отступ от верха экрана (настройте по желанию) */
-  height: fit-content;  /* Изменяем height */
-  align-self: flex-start; /* Выравниваем по верху */
+  top: 140px; 
+  height: fit-content;  
+  align-self: flex-start; 
   @media (max-width: 991px) {
     margin-left: 0;
-    position: static;  /* Отключаем sticky на мобильных устройствах */
+    position: static;  
   }
 `;
 
@@ -30,9 +29,9 @@ function SectionDirections( {rigthBlock, leftBlocks, reverse} ) {
     return (
         <Container>
             <Row>
-                {reverse ? ( // Используем тернарный оператор для условного рендеринга
+                {reverse ? (
                     <>
-                        {/* Если reverse === true, рендерим RightCol перед LeftCol */}
+                        {}
                         <RightCol ml={6}>
                             <RightBlock title={rigthBlock.title} text={rigthBlock.text} reverse={reverse}/>
                         </RightCol>
@@ -49,7 +48,7 @@ function SectionDirections( {rigthBlock, leftBlocks, reverse} ) {
                     </>
                 ) : (
                     <>
-                        {/* Если reverse === false (или не указан), рендерим LeftCol перед RightCol */}
+                        {}
                         <LeftCol ml={6}>
                             {leftBlocks.map((block, index) => (
                                 <LeftBlock
