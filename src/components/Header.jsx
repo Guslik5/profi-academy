@@ -63,9 +63,9 @@ const StyledButton = styled(Button)`
 `;
 
 const StyledImg = styled.img`
-    height: 94px;
+    height: 65px;
     @media (max-width: 768px) {
-        height: 50px;
+        height: 45px;
     }
 `
 
@@ -89,7 +89,7 @@ function Header() {
     }
 
     return (
-        <Navbar expand="lg" className="bg-body-tertiary mx-4 " style={{borderBottom: "1px solid #9E9E9E"}}>
+        <Navbar expand="lg" className="bg-body-tertiary mx-4 py-0" style={{borderBottom: "1px solid #9E9E9E"}}>
 
                 <Navbar.Brand as={Link} to="/" style={{marginRight: '4vw'}}>
                     <StyledImg
@@ -97,7 +97,7 @@ function Header() {
                         alt="Логотип"
                         className="d-flex mx-auto"
                     />
-                    <div style={{fontSize: "15px"}}>АКАДЕМИЯ ПРОФИ</div>
+                    <div style={{fontSize: "12px"}}>АКАДЕМИЯ ПРОФИ</div>
                 </Navbar.Brand>
                 <AccessibilityButton/>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
