@@ -82,7 +82,7 @@ function Contacts() {
                                         Пн-Чт:
                                     </Col>
                                     <Col>
-                                        10:00-20:00
+                                        09:30-18:00
                                     </Col>
                                 </Row>
                                 <Row className="gx-0" style={{width:"80%"}}>
