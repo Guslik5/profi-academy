@@ -36,9 +36,8 @@ function Documents() {
             <Container className=" my-5 px-5 fw-me fs-1">
                 Документы
             </Container>
-            <SliderDocumentsWithOfficialPortal/>
-            {/*Вот тут написать код*/}
             <LinksDocuments links={links}/>
+            <SliderDocumentsWithOfficialPortal/>
         </>
     );
 }
