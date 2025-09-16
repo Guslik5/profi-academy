@@ -41,7 +41,7 @@ const Title = styled.div`
     padding: 0.5rem 1rem;
     margin: 3rem auto; 
     width: fit-content; 
-    font-size: 1.2em;
+    font-size: 1.5em;
 `;
 
 const Text = styled.p`

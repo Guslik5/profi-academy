@@ -91,7 +91,7 @@ function Header() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary mx-4 py-0" style={{borderBottom: "1px solid #9E9E9E"}}>
 
-                <Navbar.Brand as={Link} to="/" style={{marginRight: '4vw'}}>
+                <Navbar.Brand as={Link} to="/" style={{marginRight: '5vw'}}>
                     <StyledImg
                         src={logo}
                         alt="Логотип"
@@ -99,7 +99,6 @@ function Header() {
                     />
                     <div style={{fontSize: "12px"}}>АКАДЕМИЯ ПРОФИ</div>
                 </Navbar.Brand>
-                <AccessibilityButton/>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="d-flex justify-content-between w-100">
@@ -131,8 +130,8 @@ function Header() {
                         </StyledNavDropdown>
 
                         <div className="d-flex flex-column justify-content-center align-items-center" style={{minWidth: "171px"}}>
-                            <Nav.Link href="tel:+79531509336" className="p-0">+7 (953) 150-93-36</Nav.Link>
-                            <Nav.Link href="mailto:akademia-profi@mail.ru" className="p-0">akademia-profi@mail.ru</Nav.Link>
+                            <Nav.Link href="tel:+78006006330" className="p-0"> +7 (800) 600-63-30</Nav.Link>
+                            <Nav.Link href="mailto:info@akademiaprofi.ru" className="p-0">info@akademiaprofi.ru</Nav.Link>
                         </div>
 
                         <StyledButton className="px-3" onClick={handleClick}>Оставить заявку</StyledButton>

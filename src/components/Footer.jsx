@@ -139,8 +139,8 @@ function Footer() {
                 </Row>
                 <Row className="mt-3 d-flex justify-content-center align-items-center">
                     <Col md={4} className="text-center">
-                        <Nav.Link href="tel:+79531509336" className="p-0">+7 (953) 150-93-36</Nav.Link>
-                        <Nav.Link href="mailto:akademia-profi@mail.ru" className="p-0">akademia-profi@mail.ru</Nav.Link>
+                        <Nav.Link href="tel:+78006006330" className="p-0">+7 (800) 600-63-30</Nav.Link>
+                        <Nav.Link href="mailto:info@akademiaprofi.ru" className="p-0">info@akademiaprofi.ru</Nav.Link>
                         <div>
                             Санкт-Петербург, Ленинский пр-т, д. 168, офис 509.
                         </div>
@@ -184,10 +184,8 @@ function Footer() {
                     </Col>
 
                 </Row>
-                <Row>
 
-                </Row>
-
+                <AccessibilityButton/>
             </Container>
         </FooterContainer>
     );

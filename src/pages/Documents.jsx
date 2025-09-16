@@ -15,20 +15,11 @@ function Documents() {
             "Устав ООО Академия Профи" : "https://cloud.mail.ru/public/1Rga/RJUJN7MKn"
         },
         {
-            "Программа ПО ": "https://cloud.mail.ru/public/imMH/jcsBPw4Jg"
-        },
-        {
-            "Программа ПП ДПО" : "https://cloud.mail.ru/public/p3xC/BefSvHXZB"
-        },
-        {
             "Положение ДОТ" : "https://cloud.mail.ru/public/w9of/Uy1uSekdP",
         },
         {
             "Порядок оказания учебно методической помощи обучающимся" : "https://cloud.mail.ru/public/aJUa/jdjifVba4",
         },
-        {
-            "Аннотация к программам" : "https://cloud.mail.ru/public/Y3BR/2JyUgyDQv",
-        }
     ];
 
     return (
@@ -36,8 +27,8 @@ function Documents() {
             <Container className=" my-5 px-5 fw-me fs-1">
                 Документы
             </Container>
-            <LinksDocuments links={links}/>
             <SliderDocumentsWithOfficialPortal/>
+            <LinksDocuments links={links}/>
         </>
     );
 }

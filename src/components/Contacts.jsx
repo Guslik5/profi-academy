@@ -64,9 +64,9 @@ function Contacts() {
                         </div>
                         <div className="d-flex flex-column">
 
-                                <a href="tel:+79531509336" className="text-decoration-none text-black">+7 (953) 150-93-36</a>
+                                <a href="tel:+78006006330" className="text-decoration-none text-black">+7 (800) 600-63-30</a>
                                 <br/>
-                                <a href="tel:+79531509336" className="text-decoration-none text-black">+7 (953) 150-93-36</a>
+                                <a href="tel:+78006006330" className="text-decoration-none text-black">+7 (800) 600-63-30</a>
 
                         </div>
                     </Col>
