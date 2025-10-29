@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import { Link } from 'react-router-dom';
@@ -6,6 +6,7 @@ import logo from '../assets/logoFavikon.png'
 import searchIcon from '../assets/searchIcon.png'
 import styled from 'styled-components';
 import AccessibilityButton from "./AccessibilityButton.jsx";
+import Modal from "./Modal.jsx";
 
 const StyledNavDropdown = styled(NavDropdown)`
   &.nav-link {
@@ -87,6 +88,15 @@ function Header() {
     const handleClick = () => {
         window.scroll(8200,8200)
     }
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary mx-4 py-0" style={{borderBottom: "1px solid #9E9E9E"}}>
@@ -134,9 +144,13 @@ function Header() {
                             <Nav.Link href="mailto:info@akademiaprofi.ru" className="p-0">info@akademiaprofi.ru</Nav.Link>
                         </div>
 
-                        <StyledButton className="px-3" onClick={handleClick}>Оставить заявку</StyledButton>
+                        <StyledButton className="px-3" onClick={handleOpenModal}>Оставить заявку</StyledButton>
                     </Nav>
                 </Navbar.Collapse>
+            <Modal
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+            />
         </Navbar>
 
     );
