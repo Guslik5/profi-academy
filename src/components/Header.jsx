@@ -123,20 +123,21 @@ function Header() {
                         </StyledNavDropdown>
 
                         <StyledNavDropdown title="Обучение" id="study" className="d-flex flex-column justify-content-center align-items-center fs-5 ">
-                            <NavDropdown.Item as={Link} to="/work-professions">Рабочие профессии</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/qualification-improvement">Повышение квалификации</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/professional-retraining">Профессиональная переподготовка</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/fire-safety">Пожарная безопасность</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/labor-protection">Охрана труда, первая помощь,<br/> высота, ОЗП</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/Рабочие профессии">Рабочие профессии</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/Повышение квалификации">Повышение квалификации</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/Профессиональная переподготовка">Профессиональная переподготовка</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/Пожарная безопасность">Пожарная безопасность</NavDropdown.Item>
+                            {/* Обратите внимание на точное соответствие строки категории */}
+                            <NavDropdown.Item as={Link} to="/courses/Охрана труда, первая помощь, высота, ОЗП">Охрана труда, первая помощь,<br/> высота, ОЗП</NavDropdown.Item>
                         </StyledNavDropdown>
 
                         <StyledNavDropdown title="Консалтинг" id="consulting" className="d-flex flex-column justify-content-center align-items-center fs-5 ">
-                            <NavDropdown.Item as={Link} to="/licensing">Лицензирование</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/certification">Аттестация специалистов</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/sro-membership">Вступление в СРО</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/fire-audit">Пожарный аудит</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/sout">СОУТ</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/risk-assessment">Расчет рисков</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/Лицензирование">Лицензирование</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/Аттестация специалистов">Аттестация специалистов</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/Вступление в СРО">Вступление в СРО</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/Пожарный аудит">Пожарный аудит</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/СОУТ">СОУТ</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/Расчет рисков">Расчет рисков</NavDropdown.Item>
                         </StyledNavDropdown>
 
                         <div className="d-flex flex-column justify-content-center align-items-center" style={{minWidth: "171px"}}>
