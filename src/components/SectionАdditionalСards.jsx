@@ -47,7 +47,7 @@ const CardWrapper = styled.div`
             case 'pattern2':
                 return `url(${bgImage2})`; 
             case 'pattern3':
-                return `url(${bgImage3})`; 
+                return `url(${bgImage2})`; 
             case 'pattern4':
                 return `url(${bgImage4})`; 
             default:
@@ -72,6 +72,8 @@ const DurationText = styled.h3`
     color: #333;
     margin: 0;
     z-index: 1;
+    display: flex;
+    justify-content: flex-end;
 `;
 
 const SectionAdditionalCards = ({ term, backgroundType }) => {

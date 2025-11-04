@@ -8,7 +8,6 @@ import OurMissionDesktop from "../components/OurMissionDesktop.jsx";
 import OurMissionMobile from "../components/OurMissionMobile.jsx";
 import SectionConsultation from "../components/SectionConsultation.jsx";
 import Contacts from "../components/Contacts.jsx";
-import Footer from "../components/Footer.jsx";
 import styled from "styled-components";
 
 const MainDivContainer = styled.div`

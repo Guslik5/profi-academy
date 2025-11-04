@@ -1,56 +1,59 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'; // Импортируем Link, если ссылки будут генерироваться здесь
 import Layout from './components/Layout.jsx';
 import Home from "./pages/Home.jsx";
 import Documents from "./pages/Documents.jsx";
 import OurMissions from "./components/template.jsx";
 import CourseListPage from "./components/CourseListPage.jsx";
-import CategoryList from "./components/CatalogPage.jsx";
+// import CategoryList from "./components/CatalogPage.jsx"; // Оставляем, если он используется для отображения списка категорий
 
-const mockCoursesData = [
-    // --- Курсы из раздела "Обучение" ---
-    { id: 1, name: 'Подготовка сведений для Единого реестра членов СРО для организаций в области инженерных изысканий и подготовки проектной документации (ПИР + ИИР)', hours: 20, price: 199, type: 'Рабочие профессии' },
-    { id: 2, name: 'Повышение квалификации для инженеров', hours: 30, price: 249, type: 'Повышение квалификации' },
-    { id: 3, name: 'Профессиональная переподготовка: Web-разработчик', hours: 45, price: 399, type: 'Профессиональная переподготовка' },
-    { id: 4, name: 'Основы Пожарной безопасности', hours: 15, price: 129, type: 'Пожарная безопасность' },
-    { id: 5, name: 'Курс по Охране труда, первой помощи', hours: 25, price: 219, type: 'Охрана труда, первая помощь, высота, ОЗП' },
-    // Добавим еще для примера, чтобы было по несколько курсов в категории
-    { id: 6, name: 'Сварщик: Основы и практика', hours: 40, price: 350, type: 'Рабочие профессии' },
-    { id: 7, name: 'Продвинутый курс по Высотным работам', hours: 30, price: 280, type: 'Охрана труда, первая помощь, высота, ОЗП' },
-
-    // --- Курсы из раздела "Консалтинг" (можно считать это типами курсов по консалтингу) ---
-    { id: 8, name: 'Оформление Лицензирования строительной деятельности', hours: 10, price: 150, type: 'Лицензирование' },
-    { id: 9, name: 'Подготовка к Аттестации специалистов ИТР', hours: 20, price: 250, type: 'Аттестация специалистов' },
-    { id: 10, name: 'Особенности Вступления в СРО', hours: 8, price: 100, type: 'Вступление в СРО' },
-    { id: 11, name: 'Проведение Пожарного аудита на предприятии', hours: 12, price: 180, type: 'Пожарный аудит' },
-    { id: 12, name: 'Внедрение СОУТ: Пошаговая инструкция', hours: 18, price: 220, type: 'СОУТ' },
-    { id: 13, name: 'Методика Расчета рисков для производств', hours: 15, price: 190, type: 'Расчет рисков' },
-    // И еще один, чтобы были дубликаты типов
-    { id: 14, name: 'Ускоренный курс по Лицензированию', hours: 7, price: 90, type: 'Лицензирование' },
+const mockCourses = [
+    {
+        id: 92,
+        name: "Рабочие профессии"
+    },
+    {
+        id: 108,
+        name: "Прочее"
+    },
+    {
+        id: 96,
+        name: "Повышение квалификации"
+    },
+    {
+        id: 94,
+        name: "Профессиональная переподготовка"
+    },
+    {
+        id: 100,
+        name: "Лицензирование"
+    },
+    {
+        id: 102,
+        name: "Аттестация специалистов"
+    },
+    {
+        id: 106,
+        name: "Вступление в СРО"
+    }
 ];
+
 function App() {
-    const uniqueCategories = [...new Set(mockCoursesData.map(course => course.type))];
-
-
     return (
         <BrowserRouter>
             <Routes>
-                {/* Layout больше не принимает uniqueCategories, так как Header сам будет их формировать */}
                 <Route path="/" element={<Layout />}>
-                    {/* Home больше не принимает uniqueCategories */}
                     <Route index element={<Home />} />
 
                     <Route path="documents" element={<Documents />} />
                     <Route path="ourMission" element={<OurMissions />} />
-                    <Route path="contacts" element={<div><h1>Контакты</h1><p>Наша контактная информация.</p></div>} /> {/* Добавил заглушку для контактов */}
-                    <Route path="/work-professions" element={<div><h1>Рабочие профессии - Страница</h1></div>} /> {/* Заглушка, если это отдельная страница */}
-                    {/* ... другие заглушки для ваших статических страниц, если они есть ... */}
+                    <Route path="contacts" element={<div><h1>Контакты</h1><p>Наша контактная информация.</p></div>} />
+                    <Route path="/work-professions" element={<div><h1>Рабочие профессии - Страница</h1></div>} />
 
-                    {/* Маршрут для страницы курсов по конкретной категории */}
-                    {/* Путь остается тот же, `/courses/:categoryType` */}
+                    {/* !!! Важное изменение: path теперь courses/:categoryId !!! */}
                     <Route
-                        path="courses/:categoryType"
-                        element={<CourseListPage allCourses={mockCoursesData} />} // allCourses передаем для фильтрации
+                        path="courses/:categoryId" // <--- Изменено с :categoryType на :categoryId
+                        element={<CourseListPage allCategory={mockCourses} />}
                     />
                 </Route>
                 <Route path="*" element={<h2 style={{textAlign: 'center', color: 'red', marginTop: '50px'}}>404 Страница не найдена!</h2>} />
