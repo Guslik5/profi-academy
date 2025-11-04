@@ -6,10 +6,10 @@ import Footer from "./Footer.jsx";
 import styled from "styled-components";
 
 const MainContent = styled.main`
-  padding-top: 150px; /* Замените на реальную высоту вашего хедера */
+  padding-top: 20px; /* Замените на реальную высоту вашего хедера */
 
   @media (max-width: 768px) {
-    padding-top: 90px; /* Адаптируйте для маленьких экранов, если высота хедера меняется */
+    padding-top: 70px; /* Адаптируйте для маленьких экранов, если высота хедера меняется */
   }
 `;
 

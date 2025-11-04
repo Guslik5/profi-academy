@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom'; // Импортируем useParams и Link
 import CourseCard from './CourseCard';
+import SectionAdditionalCards from "./SectionАdditionalСards.jsx";
+import styled from "styled-components";
 
 function CourseListPage({ allCourses }) { // Теперь принимает ВСЕ курсы
     const { categoryType } = useParams(); // Получаем параметр из URL
@@ -45,10 +47,33 @@ function CourseListPage({ allCourses }) { // Теперь принимает В�
         fontSize: '1.1em',
         marginTop: '50px'
     };
+    const CardContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+    gap: 10px; /* Расстояние между карточками */
+    justify-content: center; /* Центрируем карточки */
+    align-items: center;
+    padding: 10px;
+`;
+    const cardData = [
+        { id: 1, term: "от 1 месяца", backgroundType: "pattern1" },
+        { id: 2, term: "от 1 месяца", backgroundType: "pattern2" },
+        { id: 3, term: "от 1 месяца", backgroundType: "pattern3" },
+        { id: 4, term: "от 1 месяца", backgroundType: "pattern4" },
+    ];
 
     return (
         <div>
-            {/* Используем Link для навигации обратно на главную */}
+            <CardContainer>
+                {cardData.map(card => (
+                    <SectionAdditionalCards
+                        key={card.id}
+                        term={card.term}
+                        backgroundType={card.backgroundType}
+                    />
+                ))}
+            </CardContainer>
+            
             <Link to="/" style={buttonStyle}>
                 &larr; Вернуться к категориям
             </Link>

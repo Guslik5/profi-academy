@@ -9,6 +9,14 @@ import OurMissionMobile from "../components/OurMissionMobile.jsx";
 import SectionConsultation from "../components/SectionConsultation.jsx";
 import Contacts from "../components/Contacts.jsx";
 import Footer from "../components/Footer.jsx";
+import styled from "styled-components";
+
+const MainDivContainer = styled.div`
+    padding-top: 150px;
+    @media (max-width: 768px) {
+        padding-top: 0; /* Адаптируйте для маленьких экранов, если высота хедера меняется */
+    }
+`
 
 function Home() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -49,7 +57,7 @@ function Home() {
     }
 
     return (
-        <>
+        <MainDivContainer>
             <Banner1 />
             <BannerAllTools />
             <StudyForYourself/>
@@ -61,7 +69,7 @@ function Home() {
             <SectionConsultation/>
             <Contacts/>
 
-        </>
+        </MainDivContainer>
     );
 }
 
