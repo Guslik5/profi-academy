@@ -1,6 +1,7 @@
-import React, { useState } from 'react'; // Не забудь импортировать useState
+import React, {useState} from 'react';
+import styled from "styled-components"; // Не забудь импортировать useState
 
-function CourseCard({ course }) {
+function CourseCard({course}) {
     // Состояние для отслеживания наведения мыши
     const [isHovered, setIsHovered] = useState(false);
 
@@ -71,65 +72,67 @@ function CourseCard({ course }) {
     };
 
     // Стиль для кнопки
-    const buttonStyle = {
-        backgroundColor: '#00C49F',
-        color: '#fff',
-        padding: '12px 20px',
-        borderRadius: '50px',
-        border: 'none',
-        cursor: 'pointer',
-        fontSize: '1.05em',
-        fontWeight: 'bold',
-        textAlign: 'center',
-        width: '100%',
-        outline: 'none',
-        transition: 'background-color 0.2s ease',
-    };
+    const StyledButton = styled.button`
+        background-color: #00C49F;
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        font-size: 1.05em;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        outline: none;
+        transition: background-color 0.2s ease;
 
-    // Обработчик клика
-    const handleClick = () => {
-        console.log('hello');
-        // Здесь можно добавить логику перехода на страницу курса, открытия модального окна и т.д.
-    };
+        &:hover {
+            background-color: #000;
+        }
+    `
 
-    return (
-        <div
-            style={currentCardStyle} // Применяем объединенные стили
-            onMouseEnter={() => setIsHovered(true)} // При наведении устанавливаем isHovered в true
-            onMouseLeave={() => setIsHovered(false)} // При убирании курсора устанавливаем isHovered в false
-            onClick={handleClick} // Обработчик клика
-        >
-            {/* Тип курса */}
-            <p style={categoryStyle}>{course.type}</p>
 
-            {/* Название курса */}
-            <h3 style={titleStyle}>{course.name}</h3>
+const handleClick = () => {
+    console.log('hello');
+};
 
-            {/* Часы и Цена в одной строке */}
-            <div style={detailsRowStyle}>
-                <p style={detailItemStyle}>{course.hours} ЧАСОВ</p>
-                <p style={detailItemStyle}>{course.price} руб</p>
-            </div>
+return (
+    <div
+        style={currentCardStyle} // Применяем объединенные стили
+        onMouseEnter={() => setIsHovered(true)} // При наведении устанавливаем isHovered в true
+        onMouseLeave={() => setIsHovered(false)} // При убирании курсора устанавливаем isHovered в false
+        onClick={handleClick} // Обработчик клика
+    >
+        {/* Тип курса */}
+        <p style={categoryStyle}>{course.type}</p>
 
-            {/* Кнопка */}
-            {/* Кнопка внутри кликабельной карточки может быть проблемой.
+        {/* Название курса */}
+        <h3 style={titleStyle}>{course.name}</h3>
+
+        {/* Часы и Цена в одной строке */}
+        <div style={detailsRowStyle}>
+            <p style={detailItemStyle}>{course.hours} ЧАСОВ</p>
+            <p style={detailItemStyle}>{course.price} руб</p>
+        </div>
+
+        {/* Кнопка */}
+        {/* Кнопка внутри кликабельной карточки может быть проблемой.
                 Лучше, если она сама по себе будет кликабельна и не будет вызывать
                 клик по родительской карточке. Для этого можно использовать event.stopPropagation()
                 или вынести логику кнопки. Для простоты, пока оставляем так.
                 Если нужна другая логика, дай знать.
             */}
-            <button
-                style={buttonStyle}
-                onClick={(e) => {
-                    e.stopPropagation(); // Остановить всплытие события, чтобы не вызывался клик по карточке
-                    console.log('Кнопка "получить консультацию" нажата');
-                    // Дополнительная логика для кнопки, например, открыть форму
-                }}
-            >
-                получить консультацию
-            </button>
-        </div>
-    );
+        <StyledButton
+            onClick={(e) => {
+                e.stopPropagation(); // Остановить всплытие события, чтобы не вызывался клик по карточке
+                console.log('Кнопка "получить консультацию" нажата');
+                // Дополнительная логика для кнопки, например, открыть форму
+            }}
+        >
+            получить консультацию
+        </StyledButton>
+    </div>
+);
 }
 
 export default CourseCard;

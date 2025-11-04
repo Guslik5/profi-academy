@@ -4,13 +4,11 @@ import CourseCard from './CourseCard';
 import SectionAdditionalCards from "./SectionАdditionalСards.jsx";
 import styled from "styled-components";
 
-function CourseListPage({ allCourses }) { // Теперь принимает ВСЕ курсы
-    const { categoryType } = useParams(); // Получаем параметр из URL
+function CourseListPage({ allCourses }) {
+    const { categoryType } = useParams();
 
-    // Фильтруем курсы прямо здесь, используя categoryType из URL
     const courses = allCourses.filter(course => course.type === categoryType);
 
-    // Стили (остаются такими же)
     const courseGridStyle = {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
