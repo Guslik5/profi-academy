@@ -27,7 +27,7 @@ const StyledSecondaryText = styled.div`
     }
 `
 
-function Contacts() {
+function Contacts({id}) {
     return (
         <>
         {/*<Container fluid style={{width: "90%"}}>
@@ -46,8 +46,7 @@ function Contacts() {
                 </Row>
             </Container>*/}
 
-            <Container fluid className="bg-white rounded-5" style={{ width: "90%", boxShadow: "3px 3px 10px rgba(0, 0, 0, 0.7)" }}>
-                {/* Выравниваем колонки по верху: align-items-start */}
+            <Container fluid className="bg-white rounded-5" style={{ width: "90%", boxShadow: "3px 3px 10px rgba(0, 0, 0, 0.7)" }} id={id}>
                 <Row className="d-flex justify-content-center align-items-start p-5 my-5">
                     <Col className="d-flex flex-column align-items-center text-center" md={4}>
                         <div className="fw-bold fs-5 mt-0 mb-3 d-flex align-items-center">

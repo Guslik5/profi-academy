@@ -197,7 +197,7 @@ function CourseListPage({allCategory}) {
                 count: ${countParam} (соответствует смещению ${currentOffset})
             `);
 
-            const response = await fetch('http://127.0.0.1:8000/api/get-courses', {
+            const response = await fetch('https://akademia-profi.ru/api/get-courses', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

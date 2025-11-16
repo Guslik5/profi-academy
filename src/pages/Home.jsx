@@ -39,6 +39,7 @@ function Home() {
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
         };
+        console.log("da: ", document.getElementById('contacts'))
 
         window.addEventListener('resize', handleResize);
 
@@ -64,9 +65,9 @@ function Home() {
 
             <div style={{margin: "5rem 5vw ", border: "1px solid black", opacity: "50%"}}></div>
 
-            <SectionConsultation/>
-            <Contacts/>
-
+            <SectionConsultation />
+            <Contacts id="contacts"/>
+            
         </MainDivContainer>
     );
 }

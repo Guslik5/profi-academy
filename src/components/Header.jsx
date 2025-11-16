@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import logo from '../assets/logoFavikon.png'
 import searchIcon from '../assets/searchIcon.png'
 import styled from 'styled-components';
 import AccessibilityButton from "./AccessibilityButton.jsx";
 import Modal from "./Modal.jsx";
+
 
 const StyledNavDropdown = styled(NavDropdown)`
   &.nav-link {
@@ -85,6 +86,7 @@ background-color: white; /* Или другой цвет фона, чтобы к
 
 function Header() {
     const [isModalOpen, setModalOpen] = useState(false);
+    const navigate = useNavigate();
     
     const handleModalClose = () => {
         setModalOpen(false);
@@ -154,7 +156,32 @@ function Header() {
     const handleOpenModal = () => {
         setModalOpen(true);
     };
-    
+
+    const scrollToSection = (targetId) => (e) => {
+        e.preventDefault();
+        navigate('/')
+        
+        setTimeout(() => {
+            const scrollToNews = (sectionId) => {
+                const newsSection = document.getElementById(sectionId);
+                console.log(newsSection)
+                if (newsSection) {
+                    const rect = newsSection.getBoundingClientRect();
+                    const absoluteTop = rect.top + window.pageYOffset;
+                    const scrollTarget = absoluteTop - 100;
+
+                    window.scrollTo({
+                        top: scrollTarget,
+                        behavior: 'smooth',
+                    });
+                } else {
+                    console.warn("News section not found!");
+                }
+            };
+
+            scrollToNews(targetId);
+        }, 200);
+    };
 
     return (
         <div style={{borderBottom: "1px solid #9E9E9E"}}>
@@ -177,7 +204,7 @@ function Header() {
                         <StyledNavDropdown title="О нас" id="about" className="d-flex flex-column justify-content-center align-items-center fs-5">
                             {/*<NavDropdown.Item as={Link} to="/ourMission">Наша миссия</NavDropdown.Item>*/}
                             <NavDropdown.Item as={Link} to="/documents">Документы</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/contacts">Контакты</NavDropdown.Item>
+                            <NavDropdown.Item onClick={scrollToSection('contacts')}>Контакты</NavDropdown.Item>
                         </StyledNavDropdown>
 
                         <StyledNavDropdown title="Обучение" id="study" className="d-flex flex-column justify-content-center align-items-center fs-5 ">
