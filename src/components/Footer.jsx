@@ -142,7 +142,7 @@ function Footer() {
                         <Nav.Link href="tel:+78006006330" className="p-0">+7 (800) 600-63-30</Nav.Link>
                         <Nav.Link href="mailto:info@akademiaprofi.ru" className="p-0">info@akademiaprofi.ru</Nav.Link>
                         <div>
-                            Санкт-Петербург, Ленинский пр-т, д. 168, офис 509.
+                            Санкт-Петербург, Ленинский пр-т, д. 168, БЦ Энергия, офис 509.
                         </div>
 
                     </Col>

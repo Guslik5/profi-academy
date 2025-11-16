@@ -49,10 +49,8 @@ function App() {
                     <Route path="ourMission" element={<OurMissions />} />
                     <Route path="contacts" element={<div><h1>Контакты</h1><p>Наша контактная информация.</p></div>} />
                     <Route path="/work-professions" element={<div><h1>Рабочие профессии - Страница</h1></div>} />
-
-                    {/* !!! Важное изменение: path теперь courses/:categoryId !!! */}
                     <Route
-                        path="courses/:categoryId" // <--- Изменено с :categoryType на :categoryId
+                        path="courses/:categoryId"
                         element={<CourseListPage allCategory={mockCourses} />}
                     />
                 </Route>

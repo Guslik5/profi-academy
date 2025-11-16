@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
-import styled from "styled-components"; // Не забудь импортировать useState
+import React, { useState } from 'react';
+import styled from "styled-components";
+import Modal from './Modal'; // <-- проверь путь к файлу Modal.jsx
 
-function CourseCard({course}) {
-    // Состояние для отслеживания наведения мыши
+function CourseCard({ course }) {
     const [isHovered, setIsHovered] = useState(false);
+    const [isModalOpen, setModalOpen] = useState(false);
 
-    // Стиль для основной карточки
     const cardStyle = {
         borderRadius: '16px',
         padding: '20px',
@@ -17,34 +17,26 @@ function CourseCard({course}) {
         justifyContent: 'space-between',
         maxWidth: '320px',
         minHeight: '280px',
-        cursor: 'pointer', // Курсор-указатель, чтобы показать, что элемент кликабельный
-        transition: 'all 0.3s ease', // Плавный переход для всех стилей при наведении
-        // Добавим fontFamily для более точного соответствия изображению
+        cursor: 'pointer',
+        transition: 'all 0.3s ease',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
     };
-
-    // Стиль, который применяется при наведении
     const hoverCardStyle = {
-        boxShadow: '0 8px 20px rgba(0,0,0,0.15)', // Тень становится более выраженной
-        transform: 'translateY(-5px)',           // Карточка приподнимается
+        boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
+        transform: 'translateY(-5px)',
     };
-
-    // Объединяем базовый стиль и стиль наведения
     const currentCardStyle = {
-        ...cardStyle, // Базовые стили всегда применяются
-        ...(isHovered ? hoverCardStyle : {}) // Если isHovered true, добавляем hoverCardStyle
+        ...cardStyle,
+        ...(isHovered ? hoverCardStyle : {})
     };
-
-    // Стиль для категории (например, "Рабочие Профессии")
     const categoryStyle = {
         fontSize: '0.7em',
         color: '#888',
         marginBottom: '10px',
         fontWeight: 'normal',
-        textTransform: 'uppercase' // Как на картинке
+        textTransform: 'uppercase'
     };
 
-    // Стиль для названия курса
     const titleStyle = {
         fontSize: '1em',
         fontWeight: '600',
@@ -52,26 +44,22 @@ function CourseCard({course}) {
         marginBottom: '20px',
         lineHeight: '1.4',
     };
-
-    // Стиль для блока с часами и ценой
     const detailsRowStyle = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: 'auto',
-        marginBottom: '20px' // Отступ перед кнопкой
+        marginBottom: '20px'
     };
 
-    // Стиль для отдельных деталей (часы, цена)
     const detailItemStyle = {
         fontSize: '1em',
         fontWeight: 'bold',
         color: '#333',
         whiteSpace: 'nowrap',
-        textTransform: 'uppercase' // Как на картинке
+        textTransform: 'uppercase'
     };
 
-    // Стиль для кнопки
     const StyledButton = styled.button`
         background-color: #00C49F;
         color: #fff;
@@ -89,50 +77,141 @@ function CourseCard({course}) {
         &:hover {
             background-color: #000;
         }
-    `
+    `;
+
+    const handleCardClick = () => {
+        console.log('Клик по карточке:', course.NAME);
+    };
+
+    // Открыть модалку при клике на кнопку
+    const handleButtonClick = (e) => {
+        e.stopPropagation(); // НЕ даём всплыть клику к карточке
+        setModalOpen(true);
+    };
+    const handleModalClose = () => {
+        setModalOpen(false);
+    };
+
+    // Обработчик отправки формы из модалки:
+    // сюда придёт объект { name, phone, email } из Modal
+    // Функция для парсинга ФИО
+    const parseFullName = (fullName) => {
+        const parts = fullName.trim().split(/\s+/).filter(p => p.length > 0);
+
+        let name = '';
+        let lastname = '';
+        let secondname = '';
+
+        // Простая логика парсинга:
+        // 1 слово: Имя
+        // 2 слова: Имя Фамилия
+        // 3+ слова: Имя Фамилия Отчество (игнорируем лишнее)
+
+        if (parts.length >= 1) {
+            lastname = parts[0];
+        }
+        if (parts.length >= 2) {
+            name = parts[1];
+        }
+        if (parts.length >= 3) {
+            secondname = parts[2];
+        }
+
+        return { lastname, name, secondname };
+    };
+
+    const handleFormSubmit = async (formData) => {
+        // 1. Парсинг ФИО
+        const { lastname, name, secondname } = parseFullName(formData.name);
+
+        // 2. Формирование Payload
+        const payload = {
+            lastname: lastname,
+            name: name,
+            secondname: secondname,
+            phone: formData.phone,
+            // Если email не передан, отправляем пустую строку
+            email: formData.email || "",
+
+            // Данные с карточки курса
+            course: course.NAME,
+            // Предполагаем, что course.PRICE уже число или строка, которую можно отправить
+            cost: course.PRICE,
+        };
+
+        console.log('Отправляем заявку на сервер:', payload);
+
+        // 3. Выполнение Fetch запроса
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/add-lead', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+                // Если статус ответа 4xx или 5xx
+                const errorData = await response.json().catch(() => ({ message: 'Ошибка сервера' }));
+                console.error('Ошибка при отправке лида:', errorData);
+                // Важно: выбросить ошибку, чтобы блок catch в Modal поймал ее и не закрыл модалку
+                throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+            }
+
+            // Если ответ успешный (2xx)
+            const result = await response.json();
+            console.log('Лид успешно добавлен:', result);
+
+            // Здесь мы не закрываем модалку, потому что модалка закроется сама
+            // после успешного выполнения этой функции (если вы добавили onClose() в Modal.jsx)
+
+        } catch (error) {
+            console.error('Произошла ошибка сети или сервера:', error);
+            // Перебрасываем ошибку дальше
+            throw error;
+        }
+    };
 
 
-const handleClick = () => {
-    console.log('hello');
-};
+    return (
+        <>
+            <div
+                style={currentCardStyle}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onClick={handleCardClick}
+            >
 
-return (
-    <div
-        style={currentCardStyle} // Применяем объединенные стили
-        onMouseEnter={() => setIsHovered(true)} // При наведении устанавливаем isHovered в true
-        onMouseLeave={() => setIsHovered(false)} // При убирании курсора устанавливаем isHovered в false
-        onClick={handleClick} // Обработчик клика
-    >
-        {/* Тип курса */}
-        <p style={categoryStyle}>{course.type}</p>
+                <p style={categoryStyle}>{course.type}</p>
 
-        {/* Название курса */}
-        <h3 style={titleStyle}>{course.name}</h3>
+                <h3 style={titleStyle}>{course.NAME}</h3>
 
-        {/* Часы и Цена в одной строке */}
-        <div style={detailsRowStyle}>
-            <p style={detailItemStyle}>{course.hours} ЧАСОВ</p>
-            <p style={detailItemStyle}>{course.price} руб</p>
-        </div>
+                <div style={detailsRowStyle}>
+                    <p style={detailItemStyle}>{course.PROPERTY_112?.value} ЧАСОВ</p>
+                    <p style={detailItemStyle}>{course.PRICE} руб</p>
+                </div>
 
-        {/* Кнопка */}
-        {/* Кнопка внутри кликабельной карточки может быть проблемой.
-                Лучше, если она сама по себе будет кликабельна и не будет вызывать
-                клик по родительской карточке. Для этого можно использовать event.stopPropagation()
-                или вынести логику кнопки. Для простоты, пока оставляем так.
-                Если нужна другая логика, дай знать.
-            */}
-        <StyledButton
-            onClick={(e) => {
-                e.stopPropagation(); // Остановить всплытие события, чтобы не вызывался клик по карточке
-                console.log('Кнопка "получить консультацию" нажата');
-                // Дополнительная логика для кнопки, например, открыть форму
-            }}
-        >
-            получить консультацию
-        </StyledButton>
-    </div>
-);
+                <StyledButton
+                    onClick={handleButtonClick}
+                >
+                    получить консультацию
+                </StyledButton>
+            </div>
+
+            {/* Модалка рендерится рядом с карточкой; путь импорта в начале файла */}
+            <Modal
+                isOpen={isModalOpen}
+                onClose={handleModalClose}
+                onSubmit={async (formData) => {
+                    // Передаём данные в общий обработчик и дожидаемся результата
+                    await handleFormSubmit(formData);
+                    // Закрываем модалку после успешной отправки (если не делается внутри Modal)
+                    setModalOpen(false);
+                }}
+            />
+        </>
+    );
 }
 
 export default CourseCard;

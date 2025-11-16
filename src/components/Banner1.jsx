@@ -61,7 +61,7 @@ function Banner() {
 
     return (
         <div className="banner" style={{ padding: '20px' }}>
-            <Container fluid className="my-5">
+            <Container fluid className="my-2">
                 <Row className="align-items-center">
                     <Col md={6}>
                         <div className="text-column">

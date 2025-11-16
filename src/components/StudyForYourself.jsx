@@ -22,23 +22,24 @@ function StudyForYourself() {
 
     const dataForYourselfRightBlock = {
         "title": "Обучение",
-        "text": "..."
+        "text": "Сделайте верное вложение в свое будущее.\n" +
+            "Выберите курс и начните учиться."
     }
 
     const dataForYourselfLeftBlock = [
         {
             "title": "Рабочие профессии",
-            "text": "...",
+            "text": "Стропальщик, электрогазосварщик,токарь, монтажник и т.д.",
             "count": "01",
         },
         {
             "title": "Повышение квалификации",
-            "text": "...",
+            "text": "Антитеррористическая защищенность объекта (территории), управление персоналом и кадровое делопроизводство и т.д.",
             "count": "02",
         },
         {
             "title": "Профессиональная переподготовка",
-            "text": "...",
+            "text": "Техносферная безопасность, гражданская оборона и защита в чрезвычайных ситуациях и т.д.",
             "count": "03",
         },
         {
@@ -47,7 +48,7 @@ function StudyForYourself() {
             "count": "04",
         },
         {
-            "title": "Охрана труда, первая помощь, высота, ОЗП",
+            "title": "Охрана труда",
             "text": "...",
             "count": "05",
         },
@@ -55,7 +56,7 @@ function StudyForYourself() {
 
     return (
         <StyledStudyForYourself>
-            <BlackContainerForHomePage title={"Обучение"} text="..."/>
+            <BlackContainerForHomePage title={"Обучение"} text="Наши направления"/>
             <SectionDirections rigthBlock={dataForYourselfRightBlock} leftBlocks={dataForYourselfLeftBlock} reverse={true} />
         </StyledStudyForYourself>
     );

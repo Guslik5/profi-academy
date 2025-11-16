@@ -99,7 +99,8 @@ function Header() {
     };
 
     return (
-        <Navbar expand="lg" className="bg-body-tertiary mx-4 py-0" style={{borderBottom: "1px solid #9E9E9E"}}>
+        <div style={{borderBottom: "1px solid #9E9E9E"}}>
+        <Navbar expand="lg" className="bg-body-tertiary mx-4 py-0" >
 
                 <Navbar.Brand as={Link} to="/" style={{marginRight: '5vw'}}>
                     <StyledImg
@@ -107,7 +108,6 @@ function Header() {
                         alt="Логотип"
                         className="d-flex mx-auto"
                     />
-                    <div style={{fontSize: "12px"}}>АКАДЕМИЯ ПРОФИ</div>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -117,7 +117,7 @@ function Header() {
 
                         </Nav.Item>
                         <StyledNavDropdown title="О нас" id="about" className="d-flex flex-column justify-content-center align-items-center fs-5">
-                            <NavDropdown.Item as={Link} to="/ourMission">Наша миссия</NavDropdown.Item>
+                            {/*<NavDropdown.Item as={Link} to="/ourMission">Наша миссия</NavDropdown.Item>*/}
                             <NavDropdown.Item as={Link} to="/documents">Документы</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/contacts">Контакты</NavDropdown.Item>
                         </StyledNavDropdown>
@@ -153,7 +153,7 @@ function Header() {
                 onClose={handleCloseModal}
             />
         </Navbar>
-
+        </div>
     );
 }
 

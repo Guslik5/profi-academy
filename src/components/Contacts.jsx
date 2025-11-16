@@ -30,7 +30,7 @@ const StyledSecondaryText = styled.div`
 function Contacts() {
     return (
         <>
-            <Container fluid style={{width: "90%"}}>
+        {/*<Container fluid style={{width: "90%"}}>
                 <Row>
                     <StyledColImg md={6}>
                         <img src={womenImg} alt="Консультант" width="100%"/>
@@ -44,68 +44,71 @@ function Contacts() {
                         </StyledSecondaryText>
                     </Col>
                 </Row>
-            </Container>
+            </Container>*/}
 
-            <Container fluid className="bg-white rounded-5" style={{width: "90%", boxShadow: "3px 3px 10px rgba(0, 0, 0, 0.7)"}}>
-                <Row className="d-flex justify-content-center align-items-center p-5 my-5">
-                    <Col className="text-center" md={4}>
-                        <div className="fw-bold fs-5 m-3 d-flex justify-content-center align-items-center">
-                            <img src={locationIcon} alt="значек локации"/>
+            <Container fluid className="bg-white rounded-5" style={{ width: "90%", boxShadow: "3px 3px 10px rgba(0, 0, 0, 0.7)" }}>
+                {/* Выравниваем колонки по верху: align-items-start */}
+                <Row className="d-flex justify-content-center align-items-start p-5 my-5">
+                    <Col className="d-flex flex-column align-items-center text-center" md={4}>
+                        <div className="fw-bold fs-5 mt-0 mb-3 d-flex align-items-center">
+                            <img src={locationIcon} alt="значек локации" style={{ width: 30, height: 30, marginRight: 10 }} />
                             Расположение офиса
                         </div>
                         <div>
-                            Санкт-Петербург, Ленинский пр-т, <br/> д. 168, офис 509.
+                            Санкт-Петербург, Ленинский пр-т, д.168, БЦ Энергия, офис 509.
                         </div>
                     </Col>
-                    <Col className="text-center" md={4}>
-                        <div className="fw-bold fs-5 m-3 d-flex justify-content-center align-items-center">
-                            <img src={phoneIcon} alt="значек телефона"/>
+
+                    <Col className="d-flex flex-column align-items-center text-center" md={4}>
+                        <div className="fw-bold fs-5 mt-0 mb-3 d-flex align-items-center">
+                            <img src={phoneIcon} alt="значек телефона" style={{ width: 30, height: 30, marginRight: 10 }} />
                             Телефон
                         </div>
                         <div className="d-flex flex-column">
-
-                                <a href="tel:+78006006330" className="text-decoration-none text-black">+7 (800) 600-63-30</a>
-                                <br/>
-                                <a href="tel:+78006006330" className="text-decoration-none text-black">+7 (800) 600-63-30</a>
-
+                            <a href="tel:+78006006330" className="text-decoration-none text-black">+7 (800) 600-63-30</a>
                         </div>
                     </Col>
-                    <Col className="text-center" md={4}>
-                        <div className="fw-bold fs-5 m-3 d-flex justify-content-center align-items-center">
-                            <img src={timeIcon} alt="значек часов"/>
+
+                    <Col className="d-flex flex-column align-items-center text-center" md={4}>
+                        <div className="fw-bold fs-5 mt-0 mb-3 d-flex align-items-center">
+                            <img src={timeIcon} alt="значек часов" style={{ width: 30, height: 30, marginRight: 10 }} />
                             Рабочее время
                         </div>
                         <div>
                             <Container className="d-flex flex-column justify-content-center align-items-center">
-                                <Row className="gx-0" style={{width:"80%"}}>
-                                    <Col>
-                                        Пн-Чт:
-                                    </Col>
-                                    <Col>
-                                        09:30-18:00
-                                    </Col>
-                                </Row>
-                                <Row className="gx-0" style={{width:"80%"}}>
-                                    <Col>
-                                        Пт:
-                                    </Col>
-                                    <Col>
-                                        9:30-17:00
-                                    </Col>
-                                </Row>
-                                <Row className="gx-0" style={{width:"80%"}}>
-                                    <Col>
-                                        Сб-Вс:
-                                    </Col>
-                                    <Col>
-                                        Закрыто
-                                    </Col>
-                                </Row>
+                                <Container className="d-flex flex-column justify-content-center align-items-center">
+
+                                    {/* Контейнер для расписания с фиксированной шириной 80% */}
+                                    <div style={{ width: "80%" }}>
+
+                                        {/* Строка 1: Пн-Чт */}
+                                        <div className="d-flex justify-content-between mb-1">
+                                            <div style={{ minWidth: '100px' }}>Пн-Чт:</div>
+                                            <div style={{ minWidth: '100px' }}>09:30-18:00</div>
+                                        </div>
+
+                                        {/* Строка 2: Пт */}
+                                        <div className="d-flex justify-content-between mb-1">
+                                            <div style={{ minWidth: '100px' }}>Пт:</div>
+                                            <div style={{ minWidth: '100px' }}>9:30-17:00</div>
+                                        </div>
+
+                                        {/* Строка 3: Сб-Вс */}
+                                        <div className="d-flex justify-content-between">
+                                            <div style={{ minWidth: '100px' }}>Сб-Вс:</div>
+                                            <div style={{ minWidth: '100px' }}>Закрыто</div>
+                                        </div>
+
+                                    </div>
+                                </Container>
+
                             </Container>
                         </div>
                     </Col>
                 </Row>
             </Container>
+
+
 
         </>
     )

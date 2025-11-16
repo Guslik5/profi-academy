@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-// --- Styled Components ---
 
 const ModalOverlay = styled.div`
     position: fixed;
@@ -9,7 +8,7 @@ const ModalOverlay = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.2); /* Затемнение на 20% */
+    background: rgba(0, 0, 0, 0.2); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,8 +23,8 @@ const ModalOverlay = styled.div`
 
 const ModalContent = styled.div`
     background: linear-gradient(to bottom right, #000000, #006E64);
-    padding: 40px; /* Отступы со всех сторон */
-    border-radius: 10px; /* Скругленные углы */
+    padding: 40px;
+    border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: 450px;
@@ -41,25 +40,25 @@ const ModalContent = styled.div`
 
 const CloseButton = styled.button`
     position: absolute;
-    top: 20px; /* Отступ сверху */
-    right: 20px; /* Отступ справа */
+    top: 20px;
+    right: 20px; 
     background: none;
     border: none;
-    font-size: 32px; /* Размер X */
+    font-size: 32px;
     cursor: pointer;
-    color: white; /* Цвет X */
+    color: white; 
     transition: color 0.2s ease;
-    font-family: 'Arial', sans-serif; /* Для более четкого и жирного X */
+    font-family: 'Arial', sans-serif;
     font-weight: bold;
 
     &:hover {
-        color: #f00; /* Красный при наведении */
+        color: #f00; 
     }
 `;
 
 const FormTitle = styled.h2`
     margin-top: 0;
-    margin-bottom: 30px; /* Отступ после заголовка */
+    margin-bottom: 30px;
     color: white;
     text-align: left;
     font-size: 28px;
@@ -68,7 +67,7 @@ const FormTitle = styled.h2`
 `;
 
 const FormGroup = styled.div`
-    margin-bottom: 15px; /* Отступ между полями */
+    margin-bottom: 15px; 
 `;
 
 const Input = styled.input`

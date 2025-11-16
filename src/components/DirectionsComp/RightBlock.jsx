@@ -41,18 +41,18 @@ const Title = styled.div`
     padding: 0.5rem 1rem;
     margin: 3rem auto; 
     width: fit-content; 
-    font-size: 1.5em;
+    font-size: 1.6em;
 `;
 
 const Text = styled.p`
-    margin: 4.5vw 4vw 4vw 5vw;
+    margin: 4.5vw 4vw 4vw 7vw;
 `;
 
 function RightBlock({ title, text, reverse }) {
     return (
         <StyledRightBlock className="text-white" reverse={reverse}>
             <Title>{title}</Title>
-            <Text>{text}</Text>
+            <Text className="fs-4">{text}</Text>
         </StyledRightBlock>
     );
 }

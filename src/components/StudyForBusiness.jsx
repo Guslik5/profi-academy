@@ -20,7 +20,7 @@ function StudyForBusiness() {
 
     const dataForBusinessRightBlock = {
         "title": "Консалтинг",
-        "text": "..."
+        "text": "Решение любых вопросов бизнеса начинается здесь."
     }
 
     const dataForBusinessLeftBlock = [
@@ -35,30 +35,25 @@ function StudyForBusiness() {
             "count": "02",
         },
         {
-            "title": "Вступление в СРО",
+            "title": "Вступление в НРС",
             "text": "...",
             "count": "03",
         },
         {
-            "title": "Пожарный аудит",
+            "title": "Вступление в СРО",
             "text": "...",
             "count": "04",
         },
         {
-            "title": "СОУТ",
+            "title": "СОУТ и расчет рисков",
             "text": "...",
             "count": "05",
-        },
-        {
-            "title": "Расчет рисков",
-            "text": "...",
-            "count": "06",
         },
     ]
 
     return (
-        <StyledStudyForBusiness>
-            <BlackContainerForHomePage title={"Консалтинг"} text="..."/>
+        <StyledStudyForBusiness className="my-5">
+            {/*<BlackContainerForHomePage title={"Консалтинг"} text="..."/>*/}
             <SectionDirections rigthBlock={dataForBusinessRightBlock} leftBlocks={dataForBusinessLeftBlock} reverse={false} />
         </StyledStudyForBusiness>
     );

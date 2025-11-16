@@ -46,8 +46,8 @@ function LeftBlock({ title, text, count}) {
             <RoundedNumber>
                 {count}
             </RoundedNumber>
-            <Title>{title}</Title>
-            <Text>{text}</Text>
+            <Title className="fs-3">{title}</Title>
+            <Text className="fs-4">{text}</Text>
             <a href="#" className="text-black fw-bold">Подробнее</a>
         </StyledLeftBlock>
 
