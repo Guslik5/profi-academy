@@ -17,6 +17,7 @@ function CourseCard({ course }) {
         justifyContent: 'space-between',
         maxWidth: '320px',
         minHeight: '280px',
+        minWidth: '320px',
         transition: 'all 0.3s ease',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
     };
@@ -124,7 +125,7 @@ function CourseCard({ course }) {
         console.log('Отправляем заявку на сервер:', payload);
 
         try {
-            const response = await fetch('https://akademia-profi.ru/api/add-lead', {
+            const response = await fetch('http://127.0.0.1:8000/api/add-lead', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

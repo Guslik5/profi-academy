@@ -35,27 +35,30 @@ const StyledButton = styled.button`
 `;
 
 const CoursesGrid = styled.div`
-    /* 1. Центрирование и ограничение ширины */
-    max-width: 1300px; /* Установите максимальную ширину для всего блока карточек */
-    margin: 0 auto;    /* Центрирует блок по горизонтали */
-    padding: 0 15px;   /* Небольшой отступ по бокам для маленьких экранов */
+/* 1. Центрирование и ограничение ширины */
+max-width: 1300px; /* Установите максимальную ширину для всего блока карточек */
+margin: 0 auto;    /* Центрирует блок по горизонтали */
+padding: 0 15px;   /* Небольшой отступ по бокам для маленьких экранов */
 
-    /* 2. Сетка для размещения элементов */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
-    gap: 30px; /* Равное расстояние между карточками (используется вместо margin) */
+/* 2. Сетка для размещения элементов */
+display: grid;
+grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
+gap: 30px; /* Равное расстояние между карточками (используется вместо margin) */
 
-    /* 3. Адаптивность: 2 карточки на средних экранах */
-    @media (max-width: 1024px) {
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
-        gap: 20px; /* Уменьшаем отступ */
-    }
+/* Центрирование карточек внутри сетки */
+justify-items: center; /* Центрирует элементы по горизонтали */
 
-    /* 4. Адаптивность: 1 карточка на маленьких экранах (телефонах) */
-    @media (max-width: 600px) {
-        grid-template-columns: 1fr; /* 1 колонка */
-        gap: 15px;
-    }
+/* 3. Адаптивность: 2 карточки на средних экранах */
+@media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+    gap: 20px; /* Уменьшаем отступ */
+}
+
+/* 4. Адаптивность: 1 карточка на маленьких экранах (телефонах) */
+@media (max-width: 600px) {
+    grid-template-columns: 1fr; /* 1 колонка */
+    gap: 15px;
+}
 `;
 
 
@@ -197,7 +200,7 @@ function CourseListPage({allCategory}) {
                 count: ${countParam} (соответствует смещению ${currentOffset})
             `);
 
-            const response = await fetch('https://akademia-profi.ru/api/get-courses', {
+            const response = await fetch('http://127.0.0.1:8000/api/get-courses', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

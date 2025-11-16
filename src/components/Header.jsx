@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import {Link, useNavigate} from 'react-router-dom';
@@ -8,6 +8,25 @@ import styled from 'styled-components';
 import AccessibilityButton from "./AccessibilityButton.jsx";
 import Modal from "./Modal.jsx";
 
+const StyledNavbar = styled(Navbar)`
+background-color: white;
+transition: all 0.3s ease;
+box-shadow: none;
+position: relative; /* Начальная позиция */
+    z-index: 100;
+
+&.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+&.hidden {
+    transform: translateY(-100%);
+}
+`;
 
 const StyledNavDropdown = styled(NavDropdown)`
   &.nav-link {
@@ -71,16 +90,7 @@ const StyledImg = styled.img`
     }
 `
 
-const StyledHeader = styled.header`
-position: fixed; /* Фиксируем header вверху экрана */
-top: 0;          /* Прижимаем к верху экрана */
-left: 0;         /* Прижимаем к левому краю экрана */
-width: 100%;      /* Занимаем всю ширину экрана */
-z-index: 1000;   /* Устанавливаем высокий z-index, чтобы header был поверх всего контента */
-background-color: white; /* Или другой цвет фона, чтобы контент не просвечивал */
-`
-/* Добавьте другие стили, которые вам нужны для header */
-;
+
 
 
 
@@ -180,13 +190,42 @@ function Header() {
             };
 
             scrollToNews(targetId);
-        }, 200);
+        }, 300);
     };
 
-    return (
-        <div style={{borderBottom: "1px solid #9E9E9E"}}>
-        <Navbar expand="lg" className="bg-body-tertiary mx-4 py-0" >
+    const [isFixed, setIsFixed] = useState(false);
+    const [isHidden, setIsHidden] = useState(false);
+    let lastScrollY = 0;
 
+    const handleScroll = () => {
+        const scrollY = window.scrollY;
+
+        if (scrollY > 100) {
+            setIsFixed(true);
+        } else {
+            setIsFixed(false);
+        }
+
+        if (scrollY > lastScrollY) {
+            setIsHidden(true);
+        } else {
+            setIsHidden(false);
+        }
+
+        lastScrollY = scrollY;
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
+    return (
+        <div >
+        <StyledNavbar expand="lg" className={`${isFixed ? 'fixed' : ''} ${isHidden ? 'hidden' : ''} bg-body-tertiary px-4 py-0`} style={{borderBottom: "1px solid #9E9E9E"}} >
                 <Navbar.Brand as={Link} to="/" style={{marginRight: '5vw'}}>
                     <StyledImg
                         src={logo}
@@ -211,17 +250,16 @@ function Header() {
                             <NavDropdown.Item as={Link} to="/courses/92">Рабочие профессии</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/courses/96">Повышение квалификации</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/courses/94">Профессиональная переподготовка</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/courses/Пожарная безопасность">Пожарная безопасность</NavDropdown.Item>
-                            {/* Обратите внимание на точное соответствие строки категории */}
-                            <NavDropdown.Item as={Link} to="/courses/Охрана труда, первая помощь, высота, ОЗП">Охрана труда</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/1">Пожарная безопасность</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/98">Охрана труда</NavDropdown.Item>
                         </StyledNavDropdown>
 
                         <StyledNavDropdown title="Консалтинг" id="consulting" className="d-flex flex-column justify-content-center align-items-center fs-5 ">
                             <NavDropdown.Item as={Link} to="/courses/100">Лицензирование</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/courses/102">Аттестация специалистов</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/courses/106">Вступление в НРС</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/courses/Пожарный аудит">Вступление в СРО</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/courses/СОУТ">СОУТ и расчет рисков</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/104">Вступление в НРС</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/106">Вступление в СРО</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/1">СОУТ и расчет рисков</NavDropdown.Item>
                             {/*<NavDropdown.Item as={Link} to="/courses/Расчет рисков">Расчет рисков</NavDropdown.Item>*/}
                         </StyledNavDropdown>
 
@@ -241,7 +279,7 @@ function Header() {
                     setModalOpen(false);
                 }}
             />
-        </Navbar>
+        </StyledNavbar>
         </div>
     );
 }
