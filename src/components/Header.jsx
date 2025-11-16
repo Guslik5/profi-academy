@@ -84,19 +84,77 @@ background-color: white; /* Или другой цвет фона, чтобы к
 
 
 function Header() {
+    const [isModalOpen, setModalOpen] = useState(false);
+    
+    const handleModalClose = () => {
+        setModalOpen(false);
+    };
 
-    const handleClick = () => {
-        window.scroll(8200,8200)
-    }
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const parseFullName = (fullName) => {
+        const parts = fullName.trim().split(/\s+/).filter(p => p.length > 0);
+        let name = '';
+        let lastname = '';
+        let secondname = '';
+        if (parts.length >= 1) {
+            lastname = parts[0];
+        }
+        if (parts.length >= 2) {
+            name = parts[1];
+        }
+        if (parts.length >= 3) {
+            secondname = parts[2];
+        }
+
+        return { lastname, name, secondname };
+    };
+
+    const handleFormSubmit = async (formData) => {
+        const { lastname, name, secondname } = parseFullName(formData.name);
+
+        const payload = {
+            lastname: lastname,
+            name: name,
+            secondname: secondname,
+            phone: formData.phone,
+            email: formData.email || "",
+            course: " ",
+            cost: "0",
+        };
+
+        console.log('Отправляем заявку на сервер:', payload);
+
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/add-lead', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+
+                const errorData = await response.json().catch(() => ({ message: 'Ошибка сервера' }));
+                console.error('Ошибка при отправке лида:', errorData);
+                throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            console.log('Лид успешно добавлен:', result);
+
+        } catch (error) {
+            console.error('Произошла ошибка сети или сервера:', error);
+            throw error;
+        }
+    };
+    
+    
+
 
     const handleOpenModal = () => {
-        setIsModalOpen(true);
+        setModalOpen(true);
     };
-
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-    };
+    
 
     return (
         <div style={{borderBottom: "1px solid #9E9E9E"}}>
@@ -128,20 +186,20 @@ function Header() {
                             <NavDropdown.Item as={Link} to="/courses/94">Профессиональная переподготовка</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/courses/Пожарная безопасность">Пожарная безопасность</NavDropdown.Item>
                             {/* Обратите внимание на точное соответствие строки категории */}
-                            <NavDropdown.Item as={Link} to="/courses/Охрана труда, первая помощь, высота, ОЗП">Охрана труда, первая помощь,<br/> высота, ОЗП</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/Охрана труда, первая помощь, высота, ОЗП">Охрана труда</NavDropdown.Item>
                         </StyledNavDropdown>
 
                         <StyledNavDropdown title="Консалтинг" id="consulting" className="d-flex flex-column justify-content-center align-items-center fs-5 ">
                             <NavDropdown.Item as={Link} to="/courses/100">Лицензирование</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/courses/102">Аттестация специалистов</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/courses/106">Вступление в СРО</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/courses/Пожарный аудит">Пожарный аудит</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/courses/СОУТ">СОУТ</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/courses/Расчет рисков">Расчет рисков</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/106">Вступление в НРС</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/Пожарный аудит">Вступление в СРО</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/courses/СОУТ">СОУТ и расчет рисков</NavDropdown.Item>
+                            {/*<NavDropdown.Item as={Link} to="/courses/Расчет рисков">Расчет рисков</NavDropdown.Item>*/}
                         </StyledNavDropdown>
 
                         <div className="d-flex flex-column justify-content-center align-items-center" style={{minWidth: "171px"}}>
-                            <Nav.Link href="tel:+78006006330" className="p-0"> +7 (800) 600-63-30</Nav.Link>
+                            <Nav.Link href="tel:+78006006330" className="p-0"> 8 (800) 600-63-30</Nav.Link>
                             <Nav.Link href="mailto:info@akademiaprofi.ru" className="p-0">info@akademiaprofi.ru</Nav.Link>
                         </div>
 
@@ -150,7 +208,11 @@ function Header() {
                 </Navbar.Collapse>
             <Modal
                 isOpen={isModalOpen}
-                onClose={handleCloseModal}
+                onClose={handleModalClose}
+                onSubmit={async (formData) => {
+                    await handleFormSubmit(formData);
+                    setModalOpen(false);
+                }}
             />
         </Navbar>
         </div>

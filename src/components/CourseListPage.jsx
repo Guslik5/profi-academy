@@ -161,10 +161,10 @@ function CourseListPage({allCategory}) {
     const [loadingMore, setLoadingMore] = useState(false);
 
     const cardData = [
-        {id: 1, term: "от 1 месяца", backgroundType: "pattern1"},
-        {id: 2, term: "от 1 месяца", backgroundType: "pattern2"},
-        {id: 3, term: "от 1 месяца", backgroundType: "pattern3"},
-        {id: 4, term: "от 1 месяца", backgroundType: "pattern4"},
+        {id: 1, term2: "учитесь легально и без рисков.", term1:"Работаем на основании лицензии", backgroundType: "pattern1"},
+        {id: 2, term2: "стартуйте в карьере сразу после обучения.", term1:"Документы за 3 дня", backgroundType: "pattern2"},
+        {id: 3, term2: "подлинность гарантирована.", term1:"Вы в госреестре", backgroundType: "pattern3"},
+        {id: 4, term2: "решаем вопросы за 5 минут.", term1:"Личный менеджер", backgroundType: "pattern4"},
     ];
     
     const fetchCoursesBatch = useCallback(async (currentSearchTerm, currentOffset, isInitialLoad) => {
@@ -293,7 +293,8 @@ function CourseListPage({allCategory}) {
                 {cardData.map(card => (
                     <SectionAdditionalCards
                         key={card.id}
-                        term={card.term}
+                        term1={card.term1}
+                        term2={card.term2}
                         backgroundType={card.backgroundType}
                     />
                 ))}

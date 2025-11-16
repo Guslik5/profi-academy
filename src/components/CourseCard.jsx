@@ -17,7 +17,6 @@ function CourseCard({ course }) {
         justifyContent: 'space-between',
         maxWidth: '320px',
         minHeight: '280px',
-        cursor: 'pointer',
         transition: 'all 0.3s ease',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
     };
@@ -82,31 +81,20 @@ function CourseCard({ course }) {
     const handleCardClick = () => {
         console.log('Клик по карточке:', course.NAME);
     };
-
-    // Открыть модалку при клике на кнопку
+    
     const handleButtonClick = (e) => {
-        e.stopPropagation(); // НЕ даём всплыть клику к карточке
+        e.stopPropagation();
         setModalOpen(true);
     };
     const handleModalClose = () => {
         setModalOpen(false);
     };
-
-    // Обработчик отправки формы из модалки:
-    // сюда придёт объект { name, phone, email } из Modal
-    // Функция для парсинга ФИО
+    
     const parseFullName = (fullName) => {
         const parts = fullName.trim().split(/\s+/).filter(p => p.length > 0);
-
         let name = '';
         let lastname = '';
         let secondname = '';
-
-        // Простая логика парсинга:
-        // 1 слово: Имя
-        // 2 слова: Имя Фамилия
-        // 3+ слова: Имя Фамилия Отчество (игнорируем лишнее)
-
         if (parts.length >= 1) {
             lastname = parts[0];
         }
@@ -121,27 +109,20 @@ function CourseCard({ course }) {
     };
 
     const handleFormSubmit = async (formData) => {
-        // 1. Парсинг ФИО
         const { lastname, name, secondname } = parseFullName(formData.name);
-
-        // 2. Формирование Payload
+        
         const payload = {
             lastname: lastname,
             name: name,
             secondname: secondname,
             phone: formData.phone,
-            // Если email не передан, отправляем пустую строку
             email: formData.email || "",
-
-            // Данные с карточки курса
             course: course.NAME,
-            // Предполагаем, что course.PRICE уже число или строка, которую можно отправить
             cost: course.PRICE,
         };
 
         console.log('Отправляем заявку на сервер:', payload);
 
-        // 3. Выполнение Fetch запроса
         try {
             const response = await fetch('http://127.0.0.1:8000/api/add-lead', {
                 method: 'POST',
@@ -152,23 +133,17 @@ function CourseCard({ course }) {
             });
 
             if (!response.ok) {
-                // Если статус ответа 4xx или 5xx
+
                 const errorData = await response.json().catch(() => ({ message: 'Ошибка сервера' }));
                 console.error('Ошибка при отправке лида:', errorData);
-                // Важно: выбросить ошибку, чтобы блок catch в Modal поймал ее и не закрыл модалку
                 throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
             }
-
-            // Если ответ успешный (2xx)
+            
             const result = await response.json();
             console.log('Лид успешно добавлен:', result);
 
-            // Здесь мы не закрываем модалку, потому что модалка закроется сама
-            // после успешного выполнения этой функции (если вы добавили onClose() в Modal.jsx)
-
         } catch (error) {
             console.error('Произошла ошибка сети или сервера:', error);
-            // Перебрасываем ошибку дальше
             throw error;
         }
     };
@@ -199,14 +174,11 @@ function CourseCard({ course }) {
                 </StyledButton>
             </div>
 
-            {/* Модалка рендерится рядом с карточкой; путь импорта в начале файла */}
             <Modal
                 isOpen={isModalOpen}
                 onClose={handleModalClose}
                 onSubmit={async (formData) => {
-                    // Передаём данные в общий обработчик и дожидаемся результата
                     await handleFormSubmit(formData);
-                    // Закрываем модалку после успешной отправки (если не делается внутри Modal)
                     setModalOpen(false);
                 }}
             />

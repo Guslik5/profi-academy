@@ -73,14 +73,13 @@ const DurationText = styled.h3`
     margin: 0;
     z-index: 1;
     display: flex;
-    justify-content: flex-end;
 `;
 
-const SectionAdditionalCards = ({ term, backgroundType }) => {
+const SectionAdditionalCards = ({ term1, term2, backgroundType }) => {
     return (
         <CardWrapper backgroundType={backgroundType}>
-            <TermLabel>Срок обучения</TermLabel>
-            <DurationText>{term}</DurationText>
+            <DurationText>{term1}</DurationText>
+            <TermLabel>{term2}</TermLabel>
         </CardWrapper>
     );
 };

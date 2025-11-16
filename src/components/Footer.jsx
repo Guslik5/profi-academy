@@ -1,5 +1,5 @@
 import React from "react";
-import {Col, Container, ListGroup, ListGroupItem, Nav, Row} from "react-bootstrap";
+import {Col, Container, ListGroup, ListGroupItem, Nav, NavDropdown, Row} from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
 import whatsAppIcon from '../assets/iconWhatsApp.svg'
@@ -66,6 +66,7 @@ const CopyrightText = styled.p`
 `;
 
 function Footer() {
+    
     const footerData = [
         {
             category: "О нас",
@@ -75,25 +76,26 @@ function Footer() {
                 { name: "Контакты", url: "#" },
             ],
         },
+        
         {
             category: "Обучение",
             links: [
-                { name: "Рабочие профессии", url: "#" },
-                { name: "Повышение квалификации", url: "#" },
-                { name: "Профессиональная переподготовка", url: "#" },
+                { name: "Рабочие профессии", url: "/courses/92" },
+                { name: "Повышение квалификации", url: "/courses/96" },
+                { name: "Профессиональная переподготовка", url: "/courses/94" },
                 { name: "Пожарная безопасность", url: "#" },
-                { name: "Охрана труда, первая помощь, высота, ОЗП", url: "#" },
+                { name: "Охрана труда", url: "#" },
             ],
         },
         {
             category: "Консалтинг",
             links: [
-                { name: "Лицензирование", url: "#" },
-                { name: "Аттестация специалистов", url: "#" },
-                { name: "Вступление в СРО", url: "#" },
+                { name: "Лицензирование", url: "/courses/100" },
+                { name: "Аттестация специалистов", url: "/courses/102" },
+                { name: "Вступление в НРС", url: "/courses/106" },
                 { name: "Пожарный аудит", url: "#" },
-                { name: "СОУТ", url: "#" },
-                { name: "Расчет рисков", url: "#" },
+                { name: "Вступление в СРО", url: "#" },
+                { name: "СОУТ и расчет рисков", url: "#" },
             ],
         },
     ];
@@ -129,7 +131,7 @@ function Footer() {
                             <CategoryTitle>{category.category}</CategoryTitle>
                             <ListGroup variant="flush">
                                 {category.links.map((link, linkIndex) => (
-                                    <StyledListGroupItem key={linkIndex} as={Link} to={link.url}>
+                                    <StyledListGroupItem key={linkIndex} as={Link} to={link.url} onClick={() => scroll.scrollToTop()}>
                                         {link.name}
                                     </StyledListGroupItem>
                                 ))}
@@ -139,7 +141,7 @@ function Footer() {
                 </Row>
                 <Row className="mt-3 d-flex justify-content-center align-items-center">
                     <Col md={4} className="text-center">
-                        <Nav.Link href="tel:+78006006330" className="p-0">+7 (800) 600-63-30</Nav.Link>
+                        <Nav.Link href="tel:+78006006330" className="p-0">8 (800) 600-63-30</Nav.Link>
                         <Nav.Link href="mailto:info@akademiaprofi.ru" className="p-0">info@akademiaprofi.ru</Nav.Link>
                         <div>
                             Санкт-Петербург, Ленинский пр-т, д. 168, БЦ Энергия, офис 509.

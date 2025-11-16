@@ -53,9 +53,10 @@ function SectionConsultation() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
+        // Проверка номера телефона
         if (!phone) {
             setPhoneError('Телефон обязателен для заполнения.');
             return;
@@ -68,6 +69,7 @@ function SectionConsultation() {
 
         setPhoneError('');
 
+        // Проверка электронной почты
         if (email && !emailRegex.test(email)) {
             setEmailError('Неверный формат электронной почты.');
             return;
@@ -75,9 +77,81 @@ function SectionConsultation() {
 
         setEmailError('');
 
-        setName('');
-        setEmail('');
-        setPhone('');
+        // Создаем объект с данными формы
+        const formData = {
+            name: name,  // Предполагается, что переменная name уже определена в вашем коде
+            phone: phone,
+            email: email,
+        };
+
+        // Отправляем данные на сервер
+        try {
+            await handleFormSubmit(formData);
+            // Очистка полей после успешной отправки
+            setName('');
+            setEmail('');
+            setPhone('');
+        } catch (error) {
+            console.error('Ошибка при отправке формы:', error);
+            // Здесь можно обработать ошибку, например, показать уведомление пользователю
+        }
+    };
+
+    const parseFullName = (fullName) => {
+        const parts = fullName.trim().split(/\s+/).filter(p => p.length > 0);
+        let name = '';
+        let lastname = '';
+        let secondname = '';
+        if (parts.length >= 1) {
+            lastname = parts[0];
+        }
+        if (parts.length >= 2) {
+            name = parts[1];
+        }
+        if (parts.length >= 3) {
+            secondname = parts[2];
+        }
+
+        return { lastname, name, secondname };
+    };
+// Ваша функция для отправки данных на сервер
+    const handleFormSubmit = async (formData) => {
+        const { lastname, name: firstName, secondname } = parseFullName(formData.name);
+
+        const payload = {
+            lastname: lastname,
+            name: firstName,
+            secondname: secondname,
+            phone: formData.phone,
+            email: formData.email || "",  
+            course: " ",
+            cost: "0",
+        };
+
+        console.log('Отправляем заявку на сервер:', payload);
+
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/add-lead', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({ message: 'Ошибка сервера' }));
+                console.error('Ошибка при отправке лида:', errorData);
+                throw new Error(`Ошибка HTTP! статус: ${response.status}`);
+            }
+
+            const result = await response.json();
+            console.log('Лид успешно добавлен:', result);
+
+        } catch (error) {
+            console.error('Произошла ошибка сети или сервера:', error);
+            throw error;
+        }
     };
 
     const handlePhoneChange = (e) => {
@@ -124,7 +198,7 @@ function SectionConsultation() {
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            placeholder="Имя"
+                            placeholder="ФИО"
                             />
                         </Form.Group>
                         <Form.Group controlId="formPhone" className="mb-3">

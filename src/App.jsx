@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'; // Импортируем Link, если ссылки будут генерироваться здесь
+import React, {useEffect} from 'react';
+import {BrowserRouter, Routes, Route, Link, useLocation} from 'react-router-dom'; // Импортируем Link, если ссылки будут генерироваться здесь
 import Layout from './components/Layout.jsx';
 import Home from "./pages/Home.jsx";
 import Documents from "./pages/Documents.jsx";
@@ -37,6 +37,7 @@ const mockCourses = [
         name: "Вступление в СРО"
     }
 ];
+
 
 function App() {
     return (
