@@ -337,7 +337,7 @@ function CourseListPage({allCategory}) {
                     </CoursesGrid>
 
                     {loadingMore && (
-                        <div style={{textAlign: 'center', padding: '20px', fontSize: '1.1em', color: '#007bff'}}>Загрузка еще курсов...</div>
+                        <div style={{textAlign: 'center', padding: '20px', fontSize: '1.1em', color: '#00998B'}}>Загрузка еще курсов...</div>
                     )}
 
                     {hasMore && !loadingInitial && !loadingMore && (

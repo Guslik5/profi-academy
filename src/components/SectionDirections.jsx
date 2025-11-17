@@ -42,6 +42,7 @@ function SectionDirections( {rigthBlock, leftBlocks, reverse} ) {
                                     title={block.title}
                                     text={block.text}
                                     count={block.count}
+                                    href={block.href}
                                 />
                             ))}
                         </LeftCol>
@@ -56,6 +57,7 @@ function SectionDirections( {rigthBlock, leftBlocks, reverse} ) {
                                     title={block.title}
                                     text={block.text}
                                     count={block.count}
+                                    href={block.href}
                                 />
                             ))}
                         </LeftCol>

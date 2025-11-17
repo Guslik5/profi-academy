@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
 
 
@@ -40,7 +41,7 @@ const Text = styled.p`
 `
 
 
-function LeftBlock({ title, text, count}) {
+function LeftBlock({ title, text, count, href}) {
     return (
         <StyledLeftBlock>
             <RoundedNumber>
@@ -48,7 +49,7 @@ function LeftBlock({ title, text, count}) {
             </RoundedNumber>
             <Title className="fs-3">{title}</Title>
             <Text className="fs-4">{text}</Text>
-            <a href="#" className="text-black fw-bold">Подробнее</a>
+            <Link to={href} className="text-black fw-bold">Подробнее</Link>
         </StyledLeftBlock>
 
     )
