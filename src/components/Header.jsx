@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import {Link, useNavigate} from 'react-router-dom';
-import logo from '../assets/logoFavikon.png'
+import logo from '../assets/logoForHeader.png'
 import searchIcon from '../assets/searchIcon.png'
 import styled from 'styled-components';
 import AccessibilityButton from "./AccessibilityButton.jsx";
@@ -12,7 +12,7 @@ const StyledNavbar = styled(Navbar)`
 background-color: white;
 transition: all 0.3s ease;
 box-shadow: none;
-position: relative; /* Начальная позиция */
+position: relative; 
     z-index: 100;
 
 &.fixed {
@@ -67,12 +67,11 @@ const StyledButton = styled(Button)`
         background-color: #00776B;
         border-color: #00776B;
     }
-
-    /* Смена цвета при клике */
+    
     &:active {
-        background-color: #00554B  !important;; /* Более темный оттенок при клике */
+        background-color: #00554B  !important;; 
         border-color: #00554B  !important;;
-        box-shadow: none  !important;; /* Убираем тень при клике */
+        box-shadow: none  !important;; 
     }
     @media (max-width: 992px) {
         width: 50%;
@@ -226,13 +225,14 @@ function Header() {
     return (
         <div >
         <StyledNavbar expand="lg" className={`${isFixed ? 'fixed' : ''} ${isHidden ? 'hidden' : ''} bg-body-tertiary px-4 py-0`} style={{borderBottom: "1px solid #9E9E9E"}} >
-                <Navbar.Brand as={Link} to="/" style={{marginRight: '5vw'}}>
-                    <StyledImg
-                        src={logo}
-                        alt="Логотип"
-                        className="d-flex mx-auto"
-                    />
-                </Navbar.Brand>
+            <Navbar.Brand as={Link} to="/" style={{marginRight: '5vw'}}>
+                <StyledImg
+                    src={logo}
+                    alt="Логотип"
+                    className="d-flex mx-auto"
+                />
+                <div style={{fontSize: "12px"}}>АКАДЕМИЯ ПРОФИ</div>
+            </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="d-flex justify-content-between w-100">

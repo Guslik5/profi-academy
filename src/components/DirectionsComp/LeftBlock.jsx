@@ -6,9 +6,10 @@ import {Link} from "react-router-dom";
 
 const StyledLeftBlock = styled.div`
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     background-color: #f0f0f0;
-    padding: 1rem;
+    padding: 1.2rem;
     height: 400px;
     border: 1px solid #ccc;
     border-radius: 30px;
@@ -16,10 +17,11 @@ const StyledLeftBlock = styled.div`
     margin-bottom: 3vw;
     align-items: flex-start; /* Добавлено: выравниваем по левому краю */
     min-width: 350px;
+    
 `;
 
 const RoundedNumber = styled.div`
-    margin: 1.2vw;
+    margin: 0.8vw 1.2vw;
     font-size: 2rem;
     border: 2px solid #00D4C1;
     padding: 2rem;
@@ -49,7 +51,9 @@ function LeftBlock({ title, text, count, href}) {
             </RoundedNumber>
             <Title className="fs-3">{title}</Title>
             <Text className="fs-4">{text}</Text>
-            <Link to={href} className="text-black fw-bold">Подробнее</Link>
+            <div className="d-flex justify-content-end align-items-center" style={{width:'90%'}}>
+                <Link to={href} className="text-black fw-bold text-center">Подробнее</Link>
+            </div>
         </StyledLeftBlock>
 
     )

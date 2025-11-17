@@ -119,7 +119,7 @@ const CategoryNameContainer = styled(Container)`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 50px 0 20px;
+    margin: 45px auto 15px;
 `;
 
 const SearchButton = styled.button`

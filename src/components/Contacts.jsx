@@ -89,7 +89,7 @@ function Contacts({id}) {
                                         {/* Строка 2: Пт */}
                                         <div className="d-flex justify-content-between mb-1">
                                             <div style={{ minWidth: '100px' }}>Пт:</div>
-                                            <div style={{ minWidth: '100px' }}>9:30-17:00</div>
+                                            <div style={{ minWidth: '100px' }}>09:30-17:00</div>
                                         </div>
 
                                         {/* Строка 3: Сб-Вс */}

@@ -21,12 +21,13 @@ const StyledCard = styled(Card)`
 
     .card-title {
         font-size: 2vw;
+        font-weight: bold;
         color: white;
         transition: font-size 0.3s;
     }
 
     .card-body {
-        font-size: 0.9vw;
+        font-size: 1.3vw;
         color: white;
         padding-top: 3px;
         transition: font-size 0.3s, opacity 0.3s;
@@ -100,7 +101,7 @@ export const BannerAllTools = () => {
                     <Row className="mb-5">
                         <Col>
                             <StyledCard>
-                                <Card.Img variant="top" src={icon1} alt="Card image" className="card-img-top" />
+                                {/*<Card.Img variant="top" src={icon1} alt="Card image" className="card-img-top" />*/}
                                 <Card.Title className="card-title">Индивидуальное развитие</Card.Title>
                                 <Card.Body className="card-body">
                                     Инвестируйте в себя и свой профессиональный рост. Откройте новые возможности для карьеры и личного успеха.
@@ -109,7 +110,7 @@ export const BannerAllTools = () => {
                         </Col>
                         <Col>
                             <StyledCard>
-                                <Card.Img variant="top" src={icon2} alt="Card image" className="card-img-top" />
+                                {/*<Card.Img variant="top" src={icon2} alt="Card image" className="card-img-top" />*/}
                                 <Card.Title className="card-title">Корпоративное обучение</Card.Title>
                                 <Card.Body className="card-body">
                                     Развивайте навыки своей команды и повышайте эффективность бизнеса, без отрыва специалистов от производства.
@@ -118,7 +119,7 @@ export const BannerAllTools = () => {
                         </Col>
                         <Col>
                             <StyledCard>
-                                <Card.Img variant="top" src={icon3} alt="Card image" className="card-img-top" />
+                                {/*<Card.Img variant="top" src={icon3} alt="Card image" className="card-img-top" />*/}
                                 <Card.Title className="card-title">Онлайн-курсы</Card.Title>
                                 <Card.Body className="card-body">
                                     Учитесь в удобное время и в любом месте. Доступ к широкому выбору курсов от ведущих экспертов.
@@ -127,7 +128,7 @@ export const BannerAllTools = () => {
                         </Col>
                         <Col>
                             <StyledCard>
-                                <Card.Img variant="top" src={icon4} alt="Card image" className="card-img-top" />
+                                {/*<Card.Img variant="top" src={icon4} alt="Card image" className="card-img-top" />*/}
                                 <Card.Title className="card-title">Персональный консалтинг</Card.Title>
                                 <Card.Body className="card-body">
                                     Получить лицензию или пройти аттестацию с нами - проще, чем вы думаете.
