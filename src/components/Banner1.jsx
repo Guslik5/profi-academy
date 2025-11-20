@@ -4,6 +4,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import photoBanner from '../assets/bannerPhoto1.png'
 import Button from "react-bootstrap/Button";
 import styled from 'styled-components';
+import {useNavigate} from "react-router-dom";
 
 const StyledButton = styled.button`
   /* Базовые стили */
@@ -54,10 +55,32 @@ const StyledButton = styled.button`
 
 
 function Banner() {
+    const navigate = useNavigate();
+    
+    const scrollToSection = (targetId) => (e) => {
+        e.preventDefault();
+        navigate('/')
 
-    const handleClick = () => {
-        window.scroll(8000,8000)
-    }
+        setTimeout(() => {
+            const scrollToNews = (sectionId) => {
+                const newsSection = document.getElementById(sectionId);
+                if (newsSection) {
+                    const rect = newsSection.getBoundingClientRect();
+                    const absoluteTop = rect.top + window.pageYOffset;
+                    const scrollTarget = absoluteTop - 300;
+
+                    window.scrollTo({
+                        top: scrollTarget,
+                        behavior: 'smooth',
+                    });
+                } else {
+                    console.warn("News section not found!");
+                }
+            };
+
+            scrollToNews(targetId);
+        }, 300);
+    };
 
     return (
         <div className="banner" style={{ padding: '20px' }}>
@@ -72,7 +95,7 @@ function Banner() {
                             </StyledText>
                             <div className="d-flex justify-content-center">
                                 <StyledButton
-                                    onClick={handleClick}
+                                    onClick={scrollToSection('consultation')}
                                     variant="outline-primary"
                                     className="text-center"
                                 >

@@ -60,17 +60,17 @@ function Contacts({id}) {
 
                     <Col className="d-flex flex-column align-items-center text-center" md={4}>
                         <div className="fw-bold fs-5 mt-0 mb-3 d-flex align-items-center">
-                            <img src={phoneIcon} alt="значек телефона" style={{ width: 30, height: 30, marginRight: 10 }} />
+                            <img src={phoneIcon} alt="значек телефона" style={{ width: 28, height: 28, marginRight: 10 }} />
                             Телефон
                         </div>
                         <div className="d-flex flex-column">
-                            <a href="tel:+78006006330" className="text-decoration-none text-black">+7 (800) 600-63-30</a>
+                            <a href="tel:+78006006330" className="text-decoration-none text-black">8 (800) 600-63-30</a>
                         </div>
                     </Col>
 
                     <Col className="d-flex flex-column align-items-center text-center" md={4}>
                         <div className="fw-bold fs-5 mt-0 mb-3 d-flex align-items-center">
-                            <img src={timeIcon} alt="значек часов" style={{ width: 30, height: 30, marginRight: 10 }} />
+                            <img src={timeIcon} alt="значек часов" style={{ width: 38, height: 38, marginRight: 10 }} />
                             Рабочее время
                         </div>
                         <div>

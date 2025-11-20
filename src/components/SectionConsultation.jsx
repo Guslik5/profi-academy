@@ -41,7 +41,7 @@ const StyledButton = styled(Button)`
     }
 `;
 
-function SectionConsultation() {
+function SectionConsultation({ id }) {
     const [name, setName] = useState("");
 
     const [phone, setPhone] = useState('');
@@ -181,7 +181,7 @@ function SectionConsultation() {
 
 
     return(
-        <StyledContainer>
+        <StyledContainer id={id}>
             <Row>
                 <Col md={6}>
                     <Row className="d-flex justify-content-center align-items-center text-center fw-bold text-white fs-3 mb-5">

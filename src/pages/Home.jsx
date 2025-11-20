@@ -9,6 +9,7 @@ import OurMissionMobile from "../components/OurMissionMobile.jsx";
 import SectionConsultation from "../components/SectionConsultation.jsx";
 import Contacts from "../components/Contacts.jsx";
 import styled from "styled-components";
+import AppHeader from "../components/AppHeader.jsx";
 
 const MainDivContainer = styled.div`
     padding-top: 150px;
@@ -65,7 +66,7 @@ function Home() {
 
             <div style={{margin: "5rem 5vw ", border: "1px solid black", opacity: "50%"}}></div>
 
-            <SectionConsultation />
+            <SectionConsultation id="consultation"/>
             <Contacts id="contacts"/>
             
         </MainDivContainer>
