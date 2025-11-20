@@ -55,7 +55,6 @@ function LeftBlock({ title, text, count, href}) {
                 <Link to={href} className="text-black fw-bold text-center">Подробнее</Link>
             </div>
         </StyledLeftBlock>
-
     )
 }
 

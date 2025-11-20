@@ -38,12 +38,7 @@ function BlackContainerForHomePage({title, text}) {
         <StyledContainer className="rounded-5 my-5">
             {/*<RoundedRow>{title}</RoundedRow>*/}
             <Row className="mx-3">
-                <Col md={9} className="d-flex justify-content-center align-items-center fs-1">{text}</Col>
-                <Col md={3} className="d-flex justify-content-center">
-                    <img src={arrowDownIcon} alt="стрелка вниз"/>
-                    <img src={arrowDownIcon} alt="стрелка вниз"/>
-                    <img src={arrowDownIcon} alt="стрелка вниз"/>
-                </Col>
+                <Col className="d-flex justify-content-center align-items-center fs-1">{text}</Col>
             </Row>
         </StyledContainer>
     );

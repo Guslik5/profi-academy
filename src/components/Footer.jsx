@@ -62,7 +62,7 @@ const StyledListGroupItem = styled(ListGroupItem)`
 
 const CopyrightText = styled.p`
   color: white;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 `;
 
 function Footer() {
@@ -71,7 +71,6 @@ function Footer() {
         {
             category: "О нас",
             links: [
-                { name: "Наша миссия", url: "/ourMission" },
                 { name: "Документы", url: "/documents" },
                 { name: "Контакты", url: "#" },
             ],
@@ -83,8 +82,8 @@ function Footer() {
                 { name: "Рабочие профессии", url: "/courses/92" },
                 { name: "Повышение квалификации", url: "/courses/96" },
                 { name: "Профессиональная переподготовка", url: "/courses/94" },
-                { name: "Пожарная безопасность", url: "#" },
-                { name: "Охрана труда", url: "#" },
+                { name: "Пожарная безопасность", url: "/courses/1" },
+                { name: "Охрана труда", url: "/courses/98" },
             ],
         },
         {
@@ -92,10 +91,9 @@ function Footer() {
             links: [
                 { name: "Лицензирование", url: "/courses/100" },
                 { name: "Аттестация специалистов", url: "/courses/102" },
-                { name: "Вступление в НРС", url: "/courses/106" },
-                { name: "Пожарный аудит", url: "#" },
-                { name: "Вступление в СРО", url: "#" },
-                { name: "СОУТ и расчет рисков", url: "#" },
+                { name: "Вступление в НРС", url: "/courses/104" },
+                { name: "Вступление в СРО", url: "/courses/106" },
+                { name: "СОУТ и расчет рисков", url: "/courses/170" },
             ],
         },
     ];
@@ -112,7 +110,7 @@ function Footer() {
             image: tgIcon
         },
         {
-            href: "#",
+            href: "https://vk.com/akademiaprofispb",
             alt: "Вк",
             image: vkIcon
         }
@@ -139,16 +137,14 @@ function Footer() {
                         </Col>
                     ))}
                 </Row>
-                <Row className="mt-3 d-flex justify-content-center align-items-center">
+                <Row className="mt-3 d-flex justify-content-center ">
                     <Col md={4} className="text-center">
                         <Nav.Link href="tel:+78006006330" className="p-0">8 (800) 600-63-30</Nav.Link>
+                        <Nav.Link href="tel:+79675202425" className="p-0"> 8 (967) 520-24-25</Nav.Link>
                         <Nav.Link href="mailto:info@akademiaprofi.ru" className="p-0">info@akademiaprofi.ru</Nav.Link>
                         <div>
                             Санкт-Петербург, Ленинский пр-т, д. 168, БЦ Энергия, офис 509.
                         </div>
-
-                    </Col>
-                    <Col md={4} className="text-center">
 
                     </Col>
                     <Col md={4} className="text-center">
@@ -175,12 +171,13 @@ function Footer() {
                             })}
 
                         </StyledCol>
-                        <Row className="mt-3">
+                    </Col>
+                    <Col md={4} className="text-center">
+
+                        <Row>
                             <Col className="text-center">
                                 <CopyrightText> ООО "АКАДЕМИЯ ПРОФИ"  <br/> ИНН: 9810001506 <br/> Все права защищены.<br/> &copy; {new Date().getFullYear()}</CopyrightText>
-                                <div style={{ textAlign: "left"}}>
 
-                                </div>
                             </Col>
                         </Row>
                     </Col>

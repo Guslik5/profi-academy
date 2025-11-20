@@ -455,7 +455,7 @@ function Header() {
                                     НРС</NavDropdown.Item>
                                 <NavDropdown.Item className="fs-5" as={Link} to="/courses/106">Вступление в
                                     СРО</NavDropdown.Item>
-                                <NavDropdown.Item className="fs-5" as={Link} to="/courses/1">СОУТ и расчет
+                                <NavDropdown.Item className="fs-5" as={Link} to="/courses/170">СОУТ и расчет
                                     рисков</NavDropdown.Item>
                                 {/*<NavDropdown.Item as={Link} to="/courses/Расчет рисков">Расчет рисков</NavDropdown.Item>*/}
                             </StyledNavDropdown>
@@ -463,6 +463,7 @@ function Header() {
                             <div className="d-flex flex-column justify-content-center align-items-center"
                                  style={{minWidth: "171px"}}>
                                 <Nav.Link href="tel:+78006006330" className="p-0"> 8 (800) 600-63-30</Nav.Link>
+                                <Nav.Link href="tel:+79675202425" className="p-0"> 8 (967) 520-24-25</Nav.Link>
                                 <Nav.Link href="mailto:info@akademiaprofi.ru"
                                           className="p-0">info@akademiaprofi.ru</Nav.Link>
                             </div>
