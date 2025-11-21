@@ -1,26 +1,26 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 import Header from './Header.jsx';
 import '../App.css';
 import Footer from "./Footer.jsx";
 import styled from "styled-components";
 
 const MainContent = styled.main`
-  padding-top: 20px; /* Замените на реальную высоту вашего хедера */
+    padding-top: 20px;
 
-  @media (max-width: 768px) {
-    padding-top: 70px; /* Адаптируйте для маленьких экранов, если высота хедера меняется */
-  }
+    @media (max-width: 768px) {
+        padding-top: 70px;
+    }
 `;
 
 function Layout() {
     return (
         <div className="bg-body-tertiary">
-            <Header />
+            <Header/>
             <MainContent>
-                <Outlet />
+                <Outlet/>
             </MainContent>
-            <Footer />
+            <Footer/>
         </div>
     );
 }

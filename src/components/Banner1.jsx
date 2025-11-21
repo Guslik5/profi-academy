@@ -7,56 +7,52 @@ import styled from 'styled-components';
 import {useNavigate} from "react-router-dom";
 
 const StyledButton = styled.button`
-  /* Базовые стили */
-  width: 55%;
-  border-radius: 30px;
-  font-size: 1.3vw;
-  color: black;
-  background-color: transparent;
-  padding: 0.5rem 1rem; /* Добавлен padding для визуального баланса */
-  text-align: center;
-  cursor: pointer; /* Добавляем курсор pointer для интерактивности */
-  border: #004E47 1px solid; /* Убедимся, что бордер виден */
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; 
-    
-    /* Media запросы для адаптации на разных экранах */
+    width: 55%;
+    border-radius: 30px;
+    font-size: 1.3vw;
+    color: black;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    border: #004E47 1px solid;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+
     @media (max-width: 768px) {
         font-size: 0.7rem;
     }
-    
-    /* Стили при наведении */
-  &:hover {
-    background-color: #00998B;
-    border-color: #00998B;
-    color: white;
-  }
 
-  /* Убираем дефолтные стили Bootstrap (если нужно) */
-  &.btn-outline-primary {
-    background-color: transparent;
-    border-color: #004E47;
-      color: white;
-  }
+    &:hover {
+        background-color: #00998B;
+        border-color: #00998B;
+        color: white;
+    }
 
-  &.btn-outline-primary:hover {
-    background-color: #7DF9FF;
-    border-color: #7DF9FF;
-      color: white;
-  }
+    &.btn-outline-primary {
+        background-color: transparent;
+        border-color: #004E47;
+        color: white;
+    }
+
+    &.btn-outline-primary:hover {
+        background-color: #7DF9FF;
+        border-color: #7DF9FF;
+        color: white;
+    }
 `;
 
- const StyledText = styled.h1`
-     font-size: 2.8vw;
-     margin-bottom: 8vw;
-     @media (max-width: 768px) {
-         font-size: 1.3rem;
-     }
- `
+const StyledText = styled.h1`
+    font-size: 2.8vw;
+    margin-bottom: 8vw;
+    @media (max-width: 768px) {
+        font-size: 1.3rem;
+    }
+`
 
 
 function Banner() {
     const navigate = useNavigate();
-    
+
     const scrollToSection = (targetId) => (e) => {
         e.preventDefault();
         navigate('/')
@@ -83,7 +79,7 @@ function Banner() {
     };
 
     return (
-        <div className="banner" style={{ padding: '20px' }}>
+        <div className="banner" style={{padding: '20px'}}>
             <Container fluid className="my-2">
                 <Row className="align-items-center">
                     <Col md={6}>
@@ -109,7 +105,7 @@ function Banner() {
                             src={photoBanner}
                             alt="фотография банера"
                             className="img-fluid"
-                            style={{ maxWidth: '100%', height: 'auto' }}
+                            style={{maxWidth: '100%', height: 'auto'}}
                         />
                     </Col>
                 </Row>
@@ -117,4 +113,5 @@ function Banner() {
         </div>
     );
 }
+
 export default Banner;

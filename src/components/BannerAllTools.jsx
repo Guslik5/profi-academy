@@ -78,6 +78,7 @@ const StyledH1 = styled.h1`
     font-weight: bold;
     font-size: 2.8vw;
     color: #00D4C1;
+    margin-bottom: 3rem;
 `
 
 export const BannerAllTools = () => {

@@ -12,13 +12,13 @@ function Documents() {
 
     const links = [
         {
-            "Устав ООО Академия Профи" : "https://cloud.mail.ru/public/1Rga/RJUJN7MKn"
+            "Устав ООО Академия Профи": "https://cloud.mail.ru/public/1Rga/RJUJN7MKn"
         },
         {
-            "Положение ДОТ" : "https://cloud.mail.ru/public/w9of/Uy1uSekdP",
+            "Положение ДОТ": "https://cloud.mail.ru/public/w9of/Uy1uSekdP",
         },
         {
-            "Порядок оказания учебно методической помощи обучающимся" : "https://cloud.mail.ru/public/aJUa/jdjifVba4",
+            "Порядок оказания учебно методической помощи обучающимся": "https://cloud.mail.ru/public/aJUa/jdjifVba4",
         },
     ];
 

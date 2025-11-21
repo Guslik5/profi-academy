@@ -5,30 +5,30 @@ import styled from "styled-components";
 
 
 const StyledContainer = styled(Container)`
-  /* Для мобильных устройств (маленьких экранов) */
-  @media (max-width: 767.98px) {
-      max-width: 90%; /* Или другое подходящее значение */
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 15px; /* Добавьте боковые отступы */
-      padding-right: 15px; /* Добавьте боковые отступы */
-  }
+    /* Для мобильных устройств (маленьких экранов) */
+    @media (max-width: 767.98px) {
+        max-width: 90%; /* Или другое подходящее значение */
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px; /* Добавьте боковые отступы */
+        padding-right: 15px; /* Добавьте боковые отступы */
+    }
 `;
 
 const StyledCol = styled(Col)`
     font-size: 1.3vw;
 
     @media (max-width: 768px) {
-        font-size: 3vw; /* Исправлено: убраны лишние скобки и значение изменено */
+        font-size: 3vw;
     }
 
     @media (max-width: 480px) {
-        font-size: 4vw; /* Исправлено: убраны лишние скобки и значение изменено */
+        font-size: 4vw;
     }
 `;
 
 const StyledCarousel = styled(Carousel)`
-    
+
     .carousel-item img {
         max-width: 100%;
         max-height: 100%;
@@ -47,7 +47,7 @@ const StyledCarousel = styled(Carousel)`
             width: 100vw;
         }
     }
-    
+
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
         /* Убираем стандартный фон */
@@ -83,10 +83,22 @@ function SliderDocumentsWithOfficialPortal() {
         <StyledContainer className="mx-auto bg-white px-3 py-5 m-5 shadow-lg rounded-5">
             <Row>
                 <StyledCol md={6} className="d-flex justify-content-center align-items-center p-5 custom-text">
-                    Мы гарантируем подлинность всех документов, предоставляемых нашей компанией. Для вашей уверенности вы можете самостоятельно проверить легитимность документа на официальном государственном портале: [ссылка на портал].
+                    <p>
+                        Мы гарантируем подлинность всех документов, предоставляемых нашей компанией.
+                        Для вашей уверенности вы можете самостоятельно проверить легитимность
+                        документа на официальном государственном портале:
+                        <a
+                            href="https://islod.obrnadzor.gov.ru/rlic/details/39ec1371-4d9f-cec2-e801-301f409f552a/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            ссылка на лицензию
+                        </a>
+                        .
+                    </p>
                 </StyledCol>
                 <Col md={6} className="d-flex justify-content-center align-items-center px-5 fs-5">
-                    <StyledCarousel style={{ width: '45%', height: 'auto' }} >
+                    <StyledCarousel style={{width: '45%', height: 'auto'}}>
                         <Carousel.Item>
                             <img
                                 className="d-block"
@@ -95,7 +107,7 @@ function SliderDocumentsWithOfficialPortal() {
 
                             />
                         </Carousel.Item>
-                        <Carousel.Item >
+                        <Carousel.Item>
                             <img
                                 className="d-block"
                                 src={documentPhoto1}

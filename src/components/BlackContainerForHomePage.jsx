@@ -16,22 +16,19 @@ const RoundedRow = styled(Row)`
 const StyledContainer = styled(Container)`
     background-color: black;
     color: white;
-    padding-top: 1.5rem; /* Slightly increased padding */
+    padding-top: 1.5rem;
     padding-bottom: 2rem;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.7);
     
-
-  /* Для мобильных устройств (маленьких экранов) */
-  @media (max-width: 767.98px) {
-      max-width: 90%; /* Или другое подходящее значение */
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 15px; /* Добавьте боковые отступы */
-      padding-right: 15px; /* Добавьте боковые отступы */
-      font-size: 1rem;
-  }
+    @media (max-width: 767.98px) {
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 1rem;
+    }
 `;
-
 
 function BlackContainerForHomePage({title, text}) {
     return (

@@ -18,7 +18,6 @@ const HeaderWrap = styled.header`
     z-index: 10;
 `;
 
-/* Левая часть: логотип + иконка поиска */
 const LeftGroup = styled.div`
     display: flex;
     align-items: center;
@@ -26,17 +25,15 @@ const LeftGroup = styled.div`
     min-width: 0;
 `;
 
-/* Контейнер для иконки поиска (позиционируем относительно для появления input) */
 const SearchWrap = styled.div`
     position: relative;
     display: flex;
     align-items: center;
 `;
 
-/* Поле поиска: позиционируется абсолютно и "разворачивается" слева направо */
 const SearchInput = styled.input`
     position: absolute;
-    left: 36px; /* смещение от иконки */
+    left: 36px;
     width: 0;
     opacity: 0;
     transform-origin: left center;
@@ -50,9 +47,9 @@ const SearchInput = styled.input`
     background: #fff;
 
     ${props => props.open && css`
-        width: 280px; /* желаемая ширина открытого инпута */
+        width: 280px;
         opacity: 1;
-    `} /* мобильная адаптация */ @media (
+    `} @media (
     max-width: 560px) {
     ${props => props.open && css`
         width: 180px;
@@ -60,7 +57,6 @@ const SearchInput = styled.input`
 }
 `;
 
-/* Кнопка закрытия (крестик) */
 const CloseBtn = styled.button`
     position: absolute;
     right: -8px;
@@ -73,7 +69,6 @@ const CloseBtn = styled.button`
     cursor: pointer;
 `;
 
-/* Правая часть: навигация, контакты, кнопка */
 const RightGroup = styled.div`
     width: 72vw;
     display: flex;
@@ -85,17 +80,15 @@ const RightGroup = styled.div`
     opacity: 1;
     pointer-events: auto;
     white-space: nowrap;
-    
 
 
     ${props => props.hidden && css`
-        transform: translateX(110%); /* уезжает вправо */
+        transform: translateX(110%);
         opacity: 0;
         pointer-events: none;
-    `} /* чтобы при анимации ничего не вылезало за пределы хедера */ will-change: transform, opacity;
+    `} will-change: transform, opacity;
 `;
 
-/* Пример элементов внутри правой группы */
 const NavItem = styled.div`
     color: #333;
     font-size: 15px;
@@ -116,7 +109,6 @@ const CTA = styled.button`
     cursor: pointer;
 `;
 
-/* Логотип пример */
 const Logo = styled.div`
     display: flex;
     align-items: center;
@@ -225,7 +217,6 @@ function Header() {
         }
     }, [open]);
 
-    // Закрытие по клику вне
     useEffect(() => {
         function onDocClick(e) {
             if (!wrapRef.current) return;
@@ -238,7 +229,6 @@ function Header() {
         return () => document.removeEventListener("mousedown", onDocClick);
     }, []);
 
-    // Закрытие по Esc
     useEffect(() => {
         function onKey(e) {
             if (e.key === "Escape") setOpen(false);
@@ -409,7 +399,6 @@ function Header() {
                             placeholder="Поиск по сайту..."
                             onKeyDown={(e) => {
                                 if (e.key === "Enter") {
-                                    // обработка поиска
                                     console.log("search:", e.currentTarget.value);
                                 }
                             }}
@@ -417,16 +406,17 @@ function Header() {
 
                     </SearchWrap>
                 </LeftGroup>
-                
+
                 <RightGroup hidden={open}>
-                    
+
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="d-flex justify-content-between w-100">
-                        
+
                             <StyledNavDropdown title="О нас" id="about"
                                                className="d-flex flex-column justify-content-center align-items-center fs-5">
                                 {/*<NavDropdown.Item as={Link} to="/ourMission">Наша миссия</NavDropdown.Item>*/}
-                                <NavDropdown.Item className="fs-5" as={Link} to="/documents">Документы</NavDropdown.Item>
+                                <NavDropdown.Item className="fs-5" as={Link}
+                                                  to="/documents">Документы</NavDropdown.Item>
                                 <NavDropdown.Item className="fs-5"
                                                   onClick={scrollToSection('contacts')}>Контакты</NavDropdown.Item>
                             </StyledNavDropdown>

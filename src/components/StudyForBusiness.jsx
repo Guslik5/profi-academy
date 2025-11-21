@@ -3,18 +3,18 @@ import React from "react";
 import BlackContainerForHomePage from "./BlackContainerForHomePage.jsx";
 import SectionDirections from "./SectionDirections.jsx";
 import linesBackground from '../assets/linesBackground2.svg';
-import styled from "styled-components"; // Замените на правильный путь к вашему файлу
+import styled from "styled-components";
 
 const StyledStudyForBusiness = styled.div`
-      width: 100%;
-      height: 100%; /* Или укажите конкретную высоту, если необходимо */
-      min-height: 100vh; /* Обеспечьте покрытие всего экрана по высоте, если нужно */
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
 
-      background-image: url(${linesBackground});
-      background-size: cover; /* Растянуть изображение, чтобы покрыть всю область */
-      background-position: center; /* Центрировать изображение */
-      background-repeat: no-repeat; /* Предотвратить повторение изображения */
-    `;
+    background-image: url(${linesBackground});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+`;
 
 function StudyForBusiness() {
 

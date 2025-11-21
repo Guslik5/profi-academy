@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 import Modal from './Modal'; // <-- проверь путь к файлу Modal.jsx
 
-function CourseCard({ course }) {
+function CourseCard({course}) {
     const [isHovered, setIsHovered] = useState(false);
     const [isModalOpen, setModalOpen] = useState(false);
 
@@ -82,7 +82,7 @@ function CourseCard({ course }) {
     const handleCardClick = () => {
         console.log('Клик по карточке:', course.NAME);
     };
-    
+
     const handleButtonClick = (e) => {
         e.stopPropagation();
         setModalOpen(true);
@@ -90,7 +90,7 @@ function CourseCard({ course }) {
     const handleModalClose = () => {
         setModalOpen(false);
     };
-    
+
     const parseFullName = (fullName) => {
         const parts = fullName.trim().split(/\s+/).filter(p => p.length > 0);
         let name = '';
@@ -106,12 +106,12 @@ function CourseCard({ course }) {
             secondname = parts[2];
         }
 
-        return { lastname, name, secondname };
+        return {lastname, name, secondname};
     };
 
     const handleFormSubmit = async (formData) => {
-        const { lastname, name, secondname } = parseFullName(formData.name);
-        
+        const {lastname, name, secondname} = parseFullName(formData.name);
+
         const payload = {
             lastname: lastname,
             name: name,
@@ -135,11 +135,11 @@ function CourseCard({ course }) {
 
             if (!response.ok) {
 
-                const errorData = await response.json().catch(() => ({ message: 'Ошибка сервера' }));
+                const errorData = await response.json().catch(() => ({message: 'Ошибка сервера'}));
                 console.error('Ошибка при отправке лида:', errorData);
                 throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
             }
-            
+
             const result = await response.json();
             console.log('Лид успешно добавлен:', result);
 
@@ -165,7 +165,7 @@ function CourseCard({ course }) {
 
                 <div style={detailsRowStyle}>
                     <p style={detailItemStyle}>{course.PROPERTY_112?.value} ЧАСОВ</p>
-                    <p style={detailItemStyle}>{course.PRICE} руб</p>
+                    <p style={detailItemStyle}>ОТ {course.PRICE} руб</p>
                 </div>
 
                 <StyledButton

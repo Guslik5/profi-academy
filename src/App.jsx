@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {BrowserRouter, Routes, Route, Link, useLocation} from 'react-router-dom'; // Импортируем Link, если ссылки будут генерироваться здесь
+import {BrowserRouter, Routes, Route, Link, useLocation} from 'react-router-dom';
 import Layout from './components/Layout.jsx';
 import Home from "./pages/Home.jsx";
 import Documents from "./pages/Documents.jsx";
@@ -51,19 +51,21 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Home />} />
+                <Route path="/" element={<Layout/>}>
+                    <Route index element={<Home/>}/>
 
-                    <Route path="documents" element={<Documents />} />
-                    <Route path="ourMission" element={<OurMissions />} />
-                    <Route path="contacts" element={<div><h1>Контакты</h1><p>Наша контактная информация.</p></div>} />
-                    <Route path="/work-professions" element={<div><h1>Рабочие профессии - Страница</h1></div>} />
+                    <Route path="documents" element={<Documents/>}/>
+                    <Route path="ourMission" element={<OurMissions/>}/>
+                    <Route path="contacts" element={<div><h1>Контакты</h1><p>Наша контактная информация.</p></div>}/>
+                    <Route path="/work-professions" element={<div><h1>Рабочие профессии - Страница</h1></div>}/>
                     <Route
                         path="courses/:categoryId"
-                        element={<CourseListPage allCategory={mockCourses} />}
+                        element={<CourseListPage allCategory={mockCourses}/>}
                     />
                 </Route>
-                <Route path="*" element={<h2 style={{textAlign: 'center', color: 'red', marginTop: '50px'}}>404 Страница не найдена!</h2>} />
+                <Route path="*"
+                       element={<h2 style={{textAlign: 'center', color: 'red', marginTop: '50px'}}>404 Страница не
+                           найдена!</h2>}/>
             </Routes>
         </BrowserRouter>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 import {Col, Container, ListGroup, ListGroupItem, Nav, NavDropdown, Row} from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import whatsAppIcon from '../assets/iconWhatsApp.svg'
 import tgIcon from '../assets/iconTg.svg'
@@ -12,88 +12,88 @@ import AccessibilityButton from "./AccessibilityButton.jsx";
 import logo from "../assets/logo.png";
 
 const StyledCol = styled(Col)`
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      a {
+    a {
         display: inline-block;
         margin: 0.5em;
 
         img {
-          width: 32px;
-          height: 32px;
-          transition: filter 0.3s ease; /* Add transition for smooth effect */
+            width: 32px;
+            height: 32px;
+            transition: filter 0.3s ease;
 
-          &:hover {
-            filter: brightness(0.7); /* Darken the image on hover */
-          }
+            &:hover {
+                filter: brightness(0.7);
+            }
         }
-      }
-    `;
+    }
+`;
 
 const FooterContainer = styled.footer`
-  background-color: #292929;
-  color: white;
-  padding: 20px 0;
+    background-color: #292929;
+    color: white;
+    padding: 20px 0;
 `;
 
 const CategoryTitle = styled.h5`
-  color: white;
+    color: white;
 
-  padding-bottom: 5px;
-  border-bottom: 1px solid white;
-  font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
+    font-weight: bold;
     text-align: center;
 `;
 
 const StyledListGroupItem = styled(ListGroupItem)`
-  background-color: transparent;
-  border: none;
-  padding: 5px 0;
+    background-color: transparent;
+    border: none;
+    padding: 5px 0;
     color: white;
     text-decoration: none;
     text-align: center;
-    
+
     &:hover {
-      color: #cccccc;
+        color: #cccccc;
     }
-  `;
+`;
 
 const CopyrightText = styled.p`
-  color: white;
-  font-size: 0.9rem;
+    color: white;
+    font-size: 0.9rem;
 `;
 
 function Footer() {
-    
+
     const footerData = [
         {
             category: "О нас",
             links: [
-                { name: "Документы", url: "/documents" },
-                { name: "Контакты", url: "#" },
+                {name: "Документы", url: "/documents"},
+                {name: "Контакты", url: "#"},
             ],
         },
-        
+
         {
             category: "Обучение",
             links: [
-                { name: "Рабочие профессии", url: "/courses/92" },
-                { name: "Повышение квалификации", url: "/courses/96" },
-                { name: "Профессиональная переподготовка", url: "/courses/94" },
-                { name: "Пожарная безопасность", url: "/courses/1" },
-                { name: "Охрана труда", url: "/courses/98" },
+                {name: "Рабочие профессии", url: "/courses/92"},
+                {name: "Повышение квалификации", url: "/courses/96"},
+                {name: "Профессиональная переподготовка", url: "/courses/94"},
+                {name: "Пожарная безопасность", url: "/courses/1"},
+                {name: "Охрана труда", url: "/courses/98"},
             ],
         },
         {
             category: "Консалтинг",
             links: [
-                { name: "Лицензирование", url: "/courses/100" },
-                { name: "Аттестация специалистов", url: "/courses/102" },
-                { name: "Вступление в НРС", url: "/courses/104" },
-                { name: "Вступление в СРО", url: "/courses/106" },
-                { name: "СОУТ и расчет рисков", url: "/courses/170" },
+                {name: "Лицензирование", url: "/courses/100"},
+                {name: "Аттестация специалистов", url: "/courses/102"},
+                {name: "Вступление в НРС", url: "/courses/104"},
+                {name: "Вступление в СРО", url: "/courses/106"},
+                {name: "СОУТ и расчет рисков", url: "/courses/170"},
             ],
         },
     ];
@@ -129,7 +129,8 @@ function Footer() {
                             <CategoryTitle>{category.category}</CategoryTitle>
                             <ListGroup variant="flush">
                                 {category.links.map((link, linkIndex) => (
-                                    <StyledListGroupItem key={linkIndex} as={Link} to={link.url} onClick={() => scroll.scrollToTop()}>
+                                    <StyledListGroupItem key={linkIndex} as={Link} to={link.url}
+                                                         onClick={() => scroll.scrollToTop()}>
                                         {link.name}
                                     </StyledListGroupItem>
                                 ))}
@@ -176,7 +177,8 @@ function Footer() {
 
                         <Row>
                             <Col className="text-center">
-                                <CopyrightText> ООО "АКАДЕМИЯ ПРОФИ"  <br/> ИНН: 9810001506 <br/> Все права защищены.<br/> &copy; {new Date().getFullYear()}</CopyrightText>
+                                <CopyrightText> ООО "АКАДЕМИЯ ПРОФИ" <br/> ИНН: 9810001506 <br/> Все права
+                                    защищены.<br/> &copy; {new Date().getFullYear()}</CopyrightText>
 
                             </Col>
                         </Row>
@@ -189,4 +191,5 @@ function Footer() {
         </FooterContainer>
     );
 }
+
 export default Footer;

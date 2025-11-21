@@ -16,10 +16,10 @@ const StyledCardText = styled(Card.Body)`
 const StyledCardImage = styled(Card.Img)`
     width: 7vw;
     height: auto;
-    margin: auto; /* Переносим margin: auto сюда */
+    margin: auto;
 
     @media (max-width: 768px) {
-        width: 13vw; /* Увеличиваем размер на маленьких экранах */
+        width: 13vw;
     }
 `;
 
@@ -33,7 +33,7 @@ function OurMissionMobile({data}) {
                     {data.map((item, index) => {
                         return (
                             <>
-                                <Col key={index} md={6}> {/*  md={6}  задает ширину в 50% на средних и больших экранах */}
+                                <Col key={index} md={6}>
                                     <CardMission  text={item.text} count={index} />
                                 </Col>
                             </>

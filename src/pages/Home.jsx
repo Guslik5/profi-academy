@@ -51,16 +51,15 @@ function Home() {
 
     let componentToRender;
     if (windowWidth > 768) {
-        componentToRender = <OurMissionDesktop data={data} />
-    }
-        else {
+        componentToRender = <OurMissionDesktop data={data}/>
+    } else {
         componentToRender = <OurMissionMobile data={data}/>
     }
 
     return (
         <MainDivContainer>
-            <Banner1 />
-            <BannerAllTools />
+            <Banner1/>
+            <BannerAllTools/>
             <StudyForYourself/>
             <StudyForBusiness/>
 
@@ -68,7 +67,7 @@ function Home() {
 
             <SectionConsultation id="consultation"/>
             <Contacts id="contacts"/>
-            
+
         </MainDivContainer>
     );
 }

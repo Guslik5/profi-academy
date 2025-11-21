@@ -8,7 +8,7 @@ const ModalOverlay = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.2); 
+    background: rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,8 +16,12 @@ const ModalOverlay = styled.div`
     animation: fadeIn 0.3s ease-out;
 
     @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
 `;
 
@@ -72,35 +76,35 @@ const FormGroup = styled.div`
 
 const Input = styled.input`
     width: 100%;
-    padding: 15px; /* Увеличенный padding для высоты поля */
+    padding: 15px;
     border: none;
-    border-radius: 8px; /* Скругленные углы полей ввода */
+    border-radius: 8px;
     font-size: 16px;
     box-sizing: border-box;
     background: white;
     color: #333;
 
     &::placeholder {
-        color: #a0a0a0; /* Более светлый серый плейсхолдер */
+        color: #a0a0a0;
     }
 
     &:focus {
         outline: none;
-        box-shadow: 0 0 0 2px #5cb85c; /* Зеленая обводка при фокусе, если нужна */
+        box-shadow: 0 0 0 2px #5cb85c;
     }
 `;
 
 const SubmitButton = styled.button`
     width: 100%;
     padding: 15px 20px;
-    background-color: #000; /* Черный фон кнопки */
+    background-color: #000;
     color: white;
     border: none;
-    border-radius: 8px; /* Скругленные углы кнопки */
+    border-radius: 8px;
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 25px; /* Отступ сверху от кнопки */
+    margin-top: 25px;
 
     &:hover {
         background-color: #333;
@@ -113,21 +117,18 @@ const SubmitButton = styled.button`
 `;
 
 const DisclaimerText = styled.p`
-    font-size: 13px; /* Чуть крупнее */
-    color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый */
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
     margin-top: 15px;
     text-align: left;
     line-height: 1.4;
 `;
 
 const ErrorMessage = styled.p`
-    color: #ffdddd; /* Светло-красный текст ошибки на темном фоне */
+    color: #ffdddd;
     font-size: 14px;
     margin-top: 5px;
 `;
-
-
-// --- Modal Component ---
 
 const Modal = ({ isOpen, onClose, onSubmit }) => {
     const [name, setName] = useState('');

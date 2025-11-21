@@ -3,7 +3,7 @@ import {Col, Container, Form, Row} from "react-bootstrap";
 import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 
-import { isValidPhoneNumber } from 'libphonenumber-js'
+import {isValidPhoneNumber} from 'libphonenumber-js'
 
 const StyledContainer = styled(Container)`
     width: 90%;
@@ -16,8 +16,8 @@ const StyledContainer = styled(Container)`
 
 const StyledFormControl = styled(Form.Control)`
     &:focus {
-        border-color: black; // Цвет рамки при фокусе
-        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25); // Цвет тени при фокусе
+        border-color: black;
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
     }
 `;
 
@@ -33,15 +33,14 @@ const StyledButton = styled(Button)`
         border-color: #00423C;
     }
 
-    /* Смена цвета при клике */
     &:active {
-        background-color: #003A34  !important;; /* Более темный оттенок при клике */
-        border-color: #003A34  !important;;
-        box-shadow: none  !important;; /* Убираем тень при клике */
+        background-color: #003A34 !important;;
+        border-color: #003A34 !important;;
+        box-shadow: none !important;;
     }
 `;
 
-function SectionConsultation({ id }) {
+function SectionConsultation({id}) {
     const [name, setName] = useState("");
 
     const [phone, setPhone] = useState('');
@@ -56,7 +55,6 @@ function SectionConsultation({ id }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Проверка номера телефона
         if (!phone) {
             setPhoneError('Телефон обязателен для заполнения.');
             return;
@@ -69,7 +67,6 @@ function SectionConsultation({ id }) {
 
         setPhoneError('');
 
-        // Проверка электронной почты
         if (email && !emailRegex.test(email)) {
             setEmailError('Неверный формат электронной почты.');
             return;
@@ -77,23 +74,19 @@ function SectionConsultation({ id }) {
 
         setEmailError('');
 
-        // Создаем объект с данными формы
         const formData = {
-            name: name,  // Предполагается, что переменная name уже определена в вашем коде
+            name: name,
             phone: phone,
             email: email,
         };
 
-        // Отправляем данные на сервер
         try {
             await handleFormSubmit(formData);
-            // Очистка полей после успешной отправки
             setName('');
             setEmail('');
             setPhone('');
         } catch (error) {
             console.error('Ошибка при отправке формы:', error);
-            // Здесь можно обработать ошибку, например, показать уведомление пользователю
         }
     };
 
@@ -112,18 +105,18 @@ function SectionConsultation({ id }) {
             secondname = parts[2];
         }
 
-        return { lastname, name, secondname };
+        return {lastname, name, secondname};
     };
-// Ваша функция для отправки данных на сервер
+
     const handleFormSubmit = async (formData) => {
-        const { lastname, name: firstName, secondname } = parseFullName(formData.name);
+        const {lastname, name: firstName, secondname} = parseFullName(formData.name);
 
         const payload = {
             lastname: lastname,
             name: firstName,
             secondname: secondname,
             phone: formData.phone,
-            email: formData.email || "",  
+            email: formData.email || "",
             course: " ",
             cost: "0",
         };
@@ -140,7 +133,7 @@ function SectionConsultation({ id }) {
             });
 
             if (!response.ok) {
-                const errorData = await response.json().catch(() => ({ message: 'Ошибка сервера' }));
+                const errorData = await response.json().catch(() => ({message: 'Ошибка сервера'}));
                 console.error('Ошибка при отправке лида:', errorData);
                 throw new Error(`Ошибка HTTP! статус: ${response.status}`);
             }
@@ -180,14 +173,16 @@ function SectionConsultation({ id }) {
     };
 
 
-    return(
+    return (
         <StyledContainer id={id}>
             <Row>
                 <Col md={6}>
-                    <Row className="d-flex justify-content-center align-items-center text-center fw-bold text-white fs-3 mb-5">
+                    <Row
+                        className="d-flex justify-content-center align-items-center text-center fw-bold text-white fs-3 mb-5">
                         Получите бесплатную <br/> консультацию
                     </Row>
-                    <Row className="d-flex justify-content-center align-content-center text-center text-white fs-5 mt-5">
+                    <Row
+                        className="d-flex justify-content-center align-content-center text-center text-white fs-5 mt-5">
                         Разберем вашу ситуацию и предложим оптимальный путь развития в интересующей вас сфере.
                     </Row>
                 </Col>
@@ -195,10 +190,10 @@ function SectionConsultation({ id }) {
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="name" className="mb-3 mt-3">
                             <StyledFormControl
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            placeholder="ФИО"
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="ФИО"
                             />
                         </Form.Group>
                         <Form.Group controlId="formPhone" className="mb-3">

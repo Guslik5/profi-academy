@@ -6,17 +6,16 @@ import styled from "styled-components";
 import linesBackground from "../assets/linesBackground2.svg";
 
 
-
 const StyledStudyForYourself = styled.div`
-      width: 100%;
-      height: 100%; /* Или укажите конкретную высоту, если необходимо */
-      min-height: 100vh; /* Обеспечьте покрытие всего экрана по высоте, если нужно */
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
 
-      background-image: url(${linesBackground});
-      background-size: cover; /* Растянуть изображение, чтобы покрыть всю область */
-      background-position: center; /* Центрировать изображение */
-      background-repeat: no-repeat; /* Предотвратить повторение изображения */
-    `;
+    background-image: url(${linesBackground});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+`;
 
 function StudyForYourself() {
 
@@ -62,7 +61,8 @@ function StudyForYourself() {
     return (
         <StyledStudyForYourself>
             <BlackContainerForHomePage title={"Обучение"} text="Наши направления"/>
-            <SectionDirections rigthBlock={dataForYourselfRightBlock} leftBlocks={dataForYourselfLeftBlock} reverse={true} />
+            <SectionDirections rigthBlock={dataForYourselfRightBlock} leftBlocks={dataForYourselfLeftBlock}
+                               reverse={true}/>
         </StyledStudyForYourself>
     );
 }

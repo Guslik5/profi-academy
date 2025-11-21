@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-function CategoryList({ categories }) {
+function CategoryList({categories}) {
     const containerStyle = {
         maxWidth: '800px',
         margin: '50px auto',
