@@ -372,7 +372,7 @@ function Header() {
                             alt="Логотип"
                             className="d-flex mx-auto"
                         />
-                        <div style={{fontSize: "12px"}}>АКАДЕМИЯ ПРОФИ</div>
+                        <div style={{fontSize: "12px", fontWeight:"bold"}}>АКАДЕМИЯ ПРОФИ</div>
                     </Navbar.Brand>
 
                     <SearchWrap>
