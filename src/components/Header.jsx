@@ -80,6 +80,9 @@ const RightGroup = styled.div`
     opacity: 1;
     pointer-events: auto;
     white-space: nowrap;
+    @media (max-width: 991px) {
+        width: 100%;
+    }
 
 
     ${props => props.hidden && css`
@@ -241,6 +244,15 @@ function Header() {
     const handleModalClose = () => {
         setModalOpen(false);
     };
+    
+    const handleSearchNavigation = () => {
+        // Мы хотим перейти на путь /courses/0
+        const categoryId = 0;
+        navigate(`/courses/${categoryId}`);
+
+        // Опционально: если вы хотите передать состояние, используйте:
+        // navigate(`/courses/${categoryId}`, { state: { query: 'значение поиска' } });
+    };
 
     const parseFullName = (fullName) => {
         const parts = fullName.trim().split(/\s+/).filter(p => p.length > 0);
@@ -399,7 +411,7 @@ function Header() {
                             placeholder="Поиск по сайту..."
                             onKeyDown={(e) => {
                                 if (e.key === "Enter") {
-                                    console.log("search:", e.currentTarget.value);
+                                    handleSearchNavigation()
                                 }
                             }}
                         />
@@ -415,37 +427,37 @@ function Header() {
                             <StyledNavDropdown title="О нас" id="about"
                                                className="d-flex flex-column justify-content-center align-items-center fs-5">
                                 {/*<NavDropdown.Item as={Link} to="/ourMission">Наша миссия</NavDropdown.Item>*/}
-                                <NavDropdown.Item className="fs-5" as={Link}
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link}
                                                   to="/documents">Документы</NavDropdown.Item>
-                                <NavDropdown.Item className="fs-5"
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}}
                                                   onClick={scrollToSection('contacts')}>Контакты</NavDropdown.Item>
                             </StyledNavDropdown>
 
                             <StyledNavDropdown title="Обучение" id="study"
                                                className="d-flex flex-column justify-content-center align-items-center fs-5 ">
-                                <NavDropdown.Item className="fs-5" as={Link} to="/courses/92">Рабочие
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/92">Рабочие
                                     профессии</NavDropdown.Item>
-                                <NavDropdown.Item className="fs-5" as={Link} to="/courses/96">Повышение
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/96">Повышение
                                     квалификации</NavDropdown.Item>
-                                <NavDropdown.Item className="fs-5" as={Link} to="/courses/94">Профессиональная
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/94">Профессиональная
                                     переподготовка</NavDropdown.Item>
-                                <NavDropdown.Item className="fs-5" as={Link} to="/courses/1">Пожарная
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/1">Пожарная
                                     безопасность</NavDropdown.Item>
-                                <NavDropdown.Item className="fs-5" as={Link} to="/courses/98">Охрана
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/98">Охрана
                                     труда</NavDropdown.Item>
                             </StyledNavDropdown>
 
                             <StyledNavDropdown title="Консалтинг" id="consulting"
                                                className="d-flex flex-column justify-content-center align-items-center fs-5 ">
-                                <NavDropdown.Item className="fs-5" as={Link}
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link}
                                                   to="/courses/100">Лицензирование</NavDropdown.Item>
-                                <NavDropdown.Item className="fs-5" as={Link} to="/courses/102">Аттестация
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/102">Аттестация
                                     специалистов</NavDropdown.Item>
-                                <NavDropdown.Item className="fs-5" as={Link} to="/courses/104">Вступление в
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/104">Вступление в
                                     НРС</NavDropdown.Item>
-                                <NavDropdown.Item className="fs-5" as={Link} to="/courses/106">Вступление в
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/106">Вступление в
                                     СРО</NavDropdown.Item>
-                                <NavDropdown.Item className="fs-5" as={Link} to="/courses/170">СОУТ и расчет
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/170">СОУТ и расчет
                                     рисков</NavDropdown.Item>
                                 {/*<NavDropdown.Item as={Link} to="/courses/Расчет рисков">Расчет рисков</NavDropdown.Item>*/}
                             </StyledNavDropdown>
@@ -461,7 +473,7 @@ function Header() {
                             <StyledButton className="px-3" onClick={handleOpenModal}>Оставить заявку</StyledButton>
                         </Nav>
                     </Navbar.Collapse>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                    <Navbar.Toggle style={{position: "absolute", top: -55, right: -10}}/>
                 </RightGroup>
                 <Modal
                     isOpen={isModalOpen}

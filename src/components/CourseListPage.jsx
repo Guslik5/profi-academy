@@ -304,7 +304,7 @@ function CourseListPage({allCategory}) {
                 ))}
             </CardContainer>
             <CategoryNameContainer>
-                <h2>{categoryInfo ? categoryInfo.name : 'Категория'}</h2>
+                <h2>{categoryInfo ? categoryInfo.name : ''}</h2>
             </CategoryNameContainer>
             <SearchContainer>
                 <InputWrapper>
