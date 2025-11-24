@@ -184,8 +184,8 @@ function CourseListPage({allCategory}) {
         }
         setError(null);
 
-        if (isNaN(numericCategoryId) || !numericCategoryId || !categoryInfo) {
-            setError(isNaN(numericCategoryId) || !numericCategoryId ? "Неверный ID категории." : "Информация о категории не загружена.");
+        if (isNaN(numericCategoryId) || !categoryInfo) {
+            setError(isNaN(numericCategoryId) || !numericCategoryId ? `Неверный ID категории.${isNaN(numericCategoryId)}, ${!numericCategoryId}, ${!categoryInfo} ` : "Информация о категории не загружена.");
             if (isInitialLoad) setLoadingInitial(false);
             else setLoadingMore(false);
             setHasMore(false);
