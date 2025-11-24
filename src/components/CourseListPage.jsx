@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {useParams} from 'react-router-dom';
+import {useLocation, useParams, useSearchParams} from 'react-router-dom';
 import styled from "styled-components";
 import {Container} from "react-bootstrap";
 import searchIcon from '../assets/searchIcon.png'
@@ -141,18 +141,23 @@ const COURSES_PER_PAGE = 50;
 
 function CourseListPage({allCategory}) {
 
+
     const {categoryId} = useParams();
+    const location = useLocation();
     const numericCategoryId = parseInt(categoryId, 10);
 
     const [categoryInfo, setCategoryInfo] = useState(null);
     const [courses, setCourses] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
-    const [error, setError] = useState(null);
 
+    const [error, setError] = useState(null);
     const [offset, setOffset] = useState(0);
     const [hasMore, setHasMore] = useState(true);
     const [loadingInitial, setLoadingInitial] = useState(true);
     const [loadingMore, setLoadingMore] = useState(false);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const urlQuery = searchParams.get('q') || '';
+    
+    const [searchTerm, setSearchTerm] = useState(``);
 
     const cardData = [
         {
@@ -194,7 +199,6 @@ function CourseListPage({allCategory}) {
 
         try {
             const countParam = currentOffset / COURSES_PER_PAGE;
-
             console.log(`Отправка запроса:
                 category_id: ${numericCategoryId},
                 name: "${currentSearchTerm}",
@@ -288,6 +292,28 @@ function CourseListPage({allCategory}) {
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
             handleSearchButtonClick();
+        }
+    };
+    
+    useEffect(() => {
+        if (searchTerm !== urlQuery) {
+            setSearchTerm(urlQuery);
+        }
+        // Здесь также можно запустить логику поиска/фильтрации курсов
+        // triggerCourseSearch(urlQuery); 
+    }, [urlQuery]);
+
+    const handleSearchChange = (e) => {
+        const newValue = e.target.value;
+        setSearchTerm(newValue); // Обновляем локальное состояние
+
+        // Обновляем URL search parameter, чтобы синхронизировать хедер
+        if (newValue) {
+            // Устанавливаем новый параметр 'q'
+            setSearchParams({ q: newValue });
+        } else {
+            // Если поле пустое, удаляем параметр из URL
+            setSearchParams({});
         }
     };
 

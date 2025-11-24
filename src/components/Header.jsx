@@ -212,6 +212,7 @@ function Header() {
     const [open, setOpen] = useState(false);
     const inputRef = useRef(null);
     const wrapRef = useRef(null);
+    const [query, setQuery] = useState('');
 
     useEffect(() => {
         if (open && inputRef.current) {
@@ -244,14 +245,16 @@ function Header() {
     const handleModalClose = () => {
         setModalOpen(false);
     };
-    
-    const handleSearchNavigation = () => {
-        // Мы хотим перейти на путь /courses/0
-        const categoryId = 0;
-        navigate(`/courses/${categoryId}`);
 
-        // Опционально: если вы хотите передать состояние, используйте:
-        // navigate(`/courses/${categoryId}`, { state: { query: 'значение поиска' } });
+    const handleSearchNavigation = () => {
+        const categoryId = 0; // Или ваш стандартный ID
+
+        // Используем URL search parameter 'q' (query)
+        // Важно: всегда кодируйте значение, чтобы избежать проблем с пробелами и спецсимволами
+        const encodedQuery = encodeURIComponent(query);
+
+        // Навигация на страницу курсов с параметром 'q'
+        navigate(`/courses/${categoryId}?q=${encodedQuery}`);
     };
 
     const parseFullName = (fullName) => {
@@ -408,6 +411,7 @@ function Header() {
                         <SearchInput
                             ref={inputRef}
                             open={open}
+                            onChange={(e) => setQuery(e.target.value)}
                             placeholder="Поиск по сайту..."
                             onKeyDown={(e) => {
                                 if (e.key === "Enter") {
