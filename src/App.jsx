@@ -43,6 +43,10 @@ const mockCourses = [
     {
         id: 106,
         name: "Вступление в СРО"
+    },
+    {
+        id: 0,
+        name: ""
     }
 ];
 
