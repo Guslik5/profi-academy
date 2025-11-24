@@ -52,7 +52,7 @@ const SearchInput = styled.input`
     `} @media (
     max-width: 560px) {
     ${props => props.open && css`
-        width: 180px;
+        width: 145px;
     `}
 }
 `;
