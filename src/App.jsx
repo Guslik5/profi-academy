@@ -5,6 +5,7 @@ import Home from "./pages/Home.jsx";
 import Documents from "./pages/Documents.jsx";
 import OurMissions from "./components/template.jsx";
 import CourseListPage from "./components/CourseListPage.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 // import CategoryList from "./components/CatalogPage.jsx"; // Оставляем, если он используется для отображения списка категорий
 
 const mockCourses = [
@@ -54,6 +55,7 @@ const mockCourses = [
 function App() {
     return (
         <BrowserRouter>
+            <ScrollToTop />
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
