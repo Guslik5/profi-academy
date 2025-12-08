@@ -453,7 +453,7 @@ function Header() {
                                     квалификации</NavDropdown.Item>
                                 <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/94">Профессиональная
                                     переподготовка</NavDropdown.Item>
-                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/1">Пожарная
+                                <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/172">Пожарная
                                     безопасность</NavDropdown.Item>
                                 <NavDropdown.Item style={{fontSize: "1.1rem"}} as={Link} to="/courses/98">Охрана
                                     труда</NavDropdown.Item>
