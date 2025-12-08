@@ -168,7 +168,7 @@ function CourseCard({course}) {
                         <p style={detailItemStyle}>{course.PROPERTY_112?.value} ЧАСОВ</p>
                     )}
                     
-                    {course.PROPERTY_112.value === '-' && (
+                    {(course.PROPERTY_116?.value !== '0' && course.PROPERTY_112.value === '-') && (
                         <p style={detailItemStyle}>{course.PROPERTY_116.value} ДНЕЙ</p>
                     )}
                     
