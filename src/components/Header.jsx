@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import logo from '../assets/logoForHeader.png'
 import styled, {css} from 'styled-components';
 import AccessibilityButton from "./AccessibilityButton.jsx";
@@ -213,6 +213,13 @@ function Header() {
     const inputRef = useRef(null);
     const wrapRef = useRef(null);
     const [query, setQuery] = useState('');
+    const [expanded, setExpanded] = useState(false); // управление состоянием collapse
+    const location = useLocation();
+
+    useEffect(() => {
+        setExpanded(false);
+    }, [location.pathname]);
+    
 
     useEffect(() => {
         if (open && inputRef.current) {
@@ -373,11 +380,12 @@ function Header() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+    
 
 
     return (
         <div>
-            <StyledNavbar expand="lg"
+            <StyledNavbar expanded={expanded} expand="lg"
                           className={`${isFixed ? 'fixed' : ''} ${isHidden ? 'hidden' : ''} bg-body-tertiary px-4 py-0`}
                           style={{borderBottom: "1px solid #9E9E9E"}}>
                 <LeftGroup>
@@ -387,7 +395,7 @@ function Header() {
                             alt="Логотип"
                             className="d-flex mx-auto"
                         />
-                        <div style={{fontSize: "12px", fontWeight:"bold"}}>АКАДЕМИЯ ПРОФИ</div>
+                        <div style={{fontSize: "9px", fontWeight:"bold"}}>АКАДЕМИЯ ПРОФИ</div>
                     </Navbar.Brand>
 
                     <SearchWrap>
@@ -477,7 +485,7 @@ function Header() {
                             <StyledButton className="px-3" onClick={handleOpenModal}>Оставить заявку</StyledButton>
                         </Nav>
                     </Navbar.Collapse>
-                    <Navbar.Toggle style={{position: "absolute", top: -55, right: -10}}/>
+                    <Navbar.Toggle onClick={() => setExpanded(prev => !prev)} style={{position: "absolute", top: -55, right: -10}}/>
                 </RightGroup>
                 <Modal
                     isOpen={isModalOpen}

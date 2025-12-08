@@ -140,13 +140,10 @@ function Footer() {
                 </Row>
                 <Row className="mt-3 d-flex justify-content-center ">
                     <Col md={4} className="text-center">
-                        <Nav.Link href="tel:+78006006330" className="p-0">8 (800) 600-63-30</Nav.Link>
-                        <Nav.Link href="tel:+79675202425" className="p-0"> 8 (967) 520-24-25</Nav.Link>
-                        <Nav.Link href="mailto:info@akademiaprofi.ru" className="p-0">info@akademiaprofi.ru</Nav.Link>
                         <div>
                             Санкт-Петербург, Ленинский пр-т, д. 168, БЦ Энергия, офис 509.
                         </div>
-
+                        <Nav.Link href="mailto:info@akademiaprofi.ru" className="p-0">info@akademiaprofi.ru</Nav.Link>
                     </Col>
                     <Col md={4} className="text-center">
                         <StyledCol className="d-flex justify-content-center align-items-center">

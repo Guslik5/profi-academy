@@ -83,22 +83,17 @@ function Contacts({id}) {
                             <Container className="d-flex flex-column justify-content-center align-items-center">
                                 <Container className="d-flex flex-column justify-content-center align-items-center">
                                     <div style={{width: "80%"}}>
-
-                                        <div className="d-flex justify-content-between mb-1">
-                                            <div style={{minWidth: '100px'}}>Пн-Чт:</div>
-                                            <div style={{minWidth: '100px'}}>09:30-18:00</div>
+                                        <div className="d-flex justify-content-center mb-1">
+                                            <div style={{minWidth: '150px'}}>Пн-Чт: 09:30-18:00</div>
                                         </div>
 
-                                        <div className="d-flex justify-content-between mb-1">
-                                            <div style={{minWidth: '100px'}}>Пт:</div>
-                                            <div style={{minWidth: '100px'}}>09:30-17:00</div>
+                                        <div className="d-flex justify-content-center mb-1">
+                                            <div style={{minWidth: '150px'}}>Пт: 09:30-17:00</div>
                                         </div>
 
-                                        <div className="d-flex justify-content-between">
-                                            <div style={{minWidth: '100px'}}>Сб-Вс:</div>
-                                            <div style={{minWidth: '100px'}}>Закрыто</div>
+                                        <div className="d-flex justify-content-center mb-1">
+                                            <div style={{minWidth: '150px'}}>Сб-Вс: Закрыто</div>
                                         </div>
-
                                     </div>
                                 </Container>
 

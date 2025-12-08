@@ -164,8 +164,17 @@ function CourseCard({course}) {
                 <h3 style={titleStyle}>{course.NAME}</h3>
 
                 <div style={detailsRowStyle}>
-                    <p style={detailItemStyle}>{course.PROPERTY_112?.value} ЧАСОВ</p>
-                    <p style={detailItemStyle}>ОТ {course.PRICE} руб</p>
+                    {(course.PROPERTY_112?.value !== '0' && course.PROPERTY_112.value !== '-') && (
+                        <p style={detailItemStyle}>{course.PROPERTY_112?.value} ЧАСОВ</p>
+                    )}
+                    
+                    {course.PROPERTY_112.value === '-' && (
+                        <p style={detailItemStyle}>{course.PROPERTY_116.value} ДНЕЙ</p>
+                    )}
+                    
+                    {course.PRICE.replace(/\.00$/, '') !== '0' && (
+                        <p style={detailItemStyle}>ОТ {course.PRICE.replace(/\.00$/, '')} руб</p>
+                    )}
                 </div>
 
                 <StyledButton
