@@ -165,15 +165,15 @@ function CourseCard({course}) {
 
                 <div style={detailsRowStyle}>
                     {(course.PROPERTY_112?.value !== '0' && course.PROPERTY_112.value !== '-') && (
-                        <p style={detailItemStyle}>{course.PROPERTY_112?.value} ЧАСОВ</p>
+                        <p style={detailItemStyle}>{course.PROPERTY_112?.value} часов</p>
                     )}
                     
                     {(course.PROPERTY_116?.value !== '0' && course.PROPERTY_112.value === '-') && (
-                        <p style={detailItemStyle}>{course.PROPERTY_116.value} ДНЕЙ</p>
+                        <p style={detailItemStyle}>{course.PROPERTY_116.value} дней</p>
                     )}
                     
                     {course.PRICE.replace(/\.00$/, '') !== '0' && (
-                        <p style={detailItemStyle}>ОТ {course.PRICE.replace(/\.00$/, '')} руб</p>
+                        <p style={detailItemStyle}>от {course.PRICE.replace(/\.00$/, '')} руб</p>
                     )}
                 </div>
 

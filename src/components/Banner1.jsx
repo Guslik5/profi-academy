@@ -84,9 +84,11 @@ function Banner() {
                 <Row className="align-items-center">
                     <Col md={6}>
                         <div className="text-column">
+                            <StyledText className="d-flex justify-content-center  text-center fw-bold mb-3">
+                                Академия Профи
+                            </StyledText>
                             <StyledText className="d-flex justify-content-center  text-center fw-bold">
-                                Ваш <br/>
-                                профессиональный <br/>
+                                Ваш профессиональный <br/>
                                 рост - наша миссия.
                             </StyledText>
                             <div className="d-flex justify-content-center">

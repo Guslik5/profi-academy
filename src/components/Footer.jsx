@@ -82,7 +82,7 @@ function Footer() {
                 {name: "Рабочие профессии", url: "/courses/92"},
                 {name: "Повышение квалификации", url: "/courses/96"},
                 {name: "Профессиональная переподготовка", url: "/courses/94"},
-                {name: "Пожарная безопасность", url: "/courses/1"},
+                {name: "Пожарная безопасность", url: "/courses/172"},
                 {name: "Охрана труда", url: "/courses/98"},
             ],
         },

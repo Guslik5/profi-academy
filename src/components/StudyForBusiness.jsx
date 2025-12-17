@@ -52,7 +52,7 @@ function StudyForBusiness() {
             "title": "СОУТ и расчет рисков",
             "text": "",
             "count": "05",
-            "href": "/courses/1"
+            "href": "/courses/170"
         },
     ]
 

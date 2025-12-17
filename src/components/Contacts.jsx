@@ -53,7 +53,7 @@ function Contacts({id}) {
                          style={{marginTop: '6px'}}>
                         <div className="fw-bold fs-5 mt-0 mb-3 d-flex align-items-center">
                             <img src={locationIcon} alt="значек локации"
-                                 style={{width: 30, height: 30, marginRight: 10}}/>
+                                 style={{width: 25, height: 25, marginRight: 10}}/>
                             Расположение офиса
                         </div>
                         <div>
@@ -65,7 +65,7 @@ function Contacts({id}) {
                          style={{marginTop: '6px'}}>
                         <div className="fw-bold fs-5 mt-0 mb-3 d-flex align-items-center">
                             <img src={phoneIcon} alt="значек телефона"
-                                 style={{width: 28, height: 28, marginRight: 10}}/>
+                                 style={{width: 23, height: 23, marginRight: 10}}/>
                             Телефон
                         </div>
                         <div className="d-flex flex-column">
@@ -75,27 +75,23 @@ function Contacts({id}) {
                     </Col>
 
                     <Col className="d-flex flex-column align-items-center text-center" md={4}>
-                        <div className="fw-bold fs-5 mt-0 mb-3 d-flex align-items-center">
-                            <img src={timeIcon} alt="значек часов" style={{width: 38, height: 38, marginRight: 10}}/>
+                        <div className="fw-bold fs-5 mt-0 d-flex align-items-center" style={{marginBottom: '16px'}}>
+                            <img src={timeIcon} alt="значек часов" style={{width: 34, height: 34, marginRight: 10}}/>
                             Рабочее время
                         </div>
                         <div>
-                            <Container className="d-flex flex-column justify-content-center align-items-center">
-                                <Container className="d-flex flex-column justify-content-center align-items-center">
-                                    <div style={{width: "80%"}}>
-                                        <div className="d-flex justify-content-center mb-1">
+                            <Container className="d-flex flex-column">
+                                        <div className="text-start">
                                             <div style={{minWidth: '150px'}}>Пн-Чт: 09:30-18:00</div>
                                         </div>
 
-                                        <div className="d-flex justify-content-center mb-1">
+                                        <div className="text-start">
                                             <div style={{minWidth: '150px'}}>Пт: 09:30-17:00</div>
                                         </div>
 
-                                        <div className="d-flex justify-content-center mb-1">
+                                        <div className="text-start">
                                             <div style={{minWidth: '150px'}}>Сб-Вс: Закрыто</div>
                                         </div>
-                                    </div>
-                                </Container>
 
                             </Container>
                         </div>

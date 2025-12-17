@@ -48,7 +48,7 @@ function StudyForYourself() {
             "title": "Пожарная безопасность",
             "text": "Специалист по пожарной профилактике и т.д.",
             "count": "04",
-            "href": "/courses/1"
+            "href": "/courses/172"
         },
         {
             "title": "Охрана труда",
